@@ -1251,8 +1251,7 @@ void SANA::performChange(int type) {
             newTarget = (*unassignedmiRNAsG2)[newTargetIndex];
         }
     }
-    //added dummy initialization to shut compiler warning -Nil
-    unsigned oldOldTargetDeg = 0, oldNewTargetDeg = 0, oldMs3Denom = 0;
+    unsigned oldOldTargetDeg = -1, oldNewTargetDeg = -1, oldMs3Denom = -1;
     if (needMS3)
     {
         oldOldTargetDeg = MultiS3::totalDegrees[oldTarget];
@@ -1365,8 +1364,7 @@ void SANA::performSwap(int type) {
     uint source2 = G1RandomUnlockedNode(source1);
     uint target1 = (*A)[source1], target2 = (*A)[source2];
     
-    //added initialization to shut compiler warning -Nil
-    unsigned oldTarget1Deg = 0, oldTarget2Deg = 0, oldMs3Denom = 0;
+    unsigned oldTarget1Deg = -1, oldTarget2Deg = -1, oldMs3Denom = -1;
     if (needMS3)
     {
         oldTarget1Deg = MultiS3::totalDegrees[target1];
@@ -2657,8 +2655,7 @@ void SANA::setTInitialAndTFinalByLinearRegression() {
     cout << " to " << pow(10, log10HighTemp) <<" for linear regression" << endl;
 
     int T_i;
-    double log_temp;
-    map<double, double> pbadMap;
+    double log_temp = -1;
 
 	for(T_i = 0; T_i <= log10NumSteps; T_i++){
 	log_temp = log10LowTemp + T_i*(log10HighTemp-log10LowTemp)/log10NumSteps;

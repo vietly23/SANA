@@ -10,11 +10,11 @@
 
 using namespace std;
 
-string Graph::GetName() const {
+std::string Graph::GetName() const {
     return name;
 }
 
-void Graph::setName(string name) {
+void Graph::setName(std::string name) {
     this -> name = name;
 }
 
@@ -28,10 +28,10 @@ unsigned int Graph::GetNumEdges() const {
 
 int Graph::RandomNode() {
     // TODO change this later so its uses a non-static function
-    return Utils::RandInt(0,GetNumNodes()-1);
+    return Utils::RandInt(0, GetNumNodes()-1);
 }
 
-void Graph::AddEdge(const unsigned int &node1, const unsigned int &node2, const unsigned int &weight) throw(GraphInvalidIndexError) {
+void Graph::AddEdge(const unsigned int &node1, const unsigned int &node2, const unsigned int &weight = 1) {
     if (node1 >= numNodes || node2 >= numNodes)
         throw GraphInvalidIndexError("Invalid node index passed into AddEdge");
     if (node1 > node2) {
@@ -44,7 +44,7 @@ void Graph::AddEdge(const unsigned int &node1, const unsigned int &node2, const 
     ++numEdges;  // Either way we iterate the edge count
 }
 
-void Graph::RemoveEdge(const unsigned int &node1, const unsigned int &node2) throw(GraphInvalidIndexError) {
+void Graph::RemoveEdge(const unsigned int &node1, const unsigned int &node2) {
     if (node1 >= numNodes || node2 >= numNodes)
         throw GraphInvalidIndexError("Invalid node index passed into RemoveEdge");
 
@@ -91,13 +91,13 @@ void Graph::SetNumNodes(const unsigned int &numNodes) {
     nodeNames.resize(numNodes);
 }
 
-void Graph::SetNodeName(const unsigned int &nodeIndex, const string &name) throw(GraphInvalidIndexError) {
+void Graph::SetNodeName(const unsigned int &nodeIndex, const std::string &name) {
     if (nodeIndex >= numNodes)
         throw GraphInvalidIndexError("Invalid node index passed into SetNodeName");
     nodeNames[nodeIndex] = name;
 }
 
-string Graph::GetNodeName(const unsigned int &nodeIndex) const throw(GraphInvalidIndexError) {
+std::string Graph::GetNodeName(const unsigned int &nodeIndex) const {
      if (nodeIndex >= numNodes)
          throw GraphInvalidIndexError("Invalid node index passed into GetNodeName");
      return nodeNames[nodeIndex];
@@ -108,17 +108,17 @@ void Graph::ClearGraph() {
     numNodes = numEdges = 0;
 }
 
-unordered_map<string,ushort> Graph::getNodeNameToIndexMap() const {
-    unordered_map<string,ushort> res;
+std::unordered_map<std::string, unsigned short> Graph::getNodeNameToIndexMap() const {
+    std::unordered_map<std::string,unsigned short> res;
     for(size_t i = 0; i < GetNumNodes(); ++i) { //Get the number of nodes in the graph
         res[this->GetNodeName(i)] = i; //At that node position, map the name to the number
     }
     return res;
 }
 
-unordered_map<ushort,string> Graph::getIndexToNodeNameMap() const {
-    unordered_map<string,ushort> reverse = getNodeNameToIndexMap();
-    unordered_map<ushort,string> res;
+std::unordered_map<unsigned short, std::string> Graph::getIndexToNodeNameMap() const {
+    std::unordered_map<std::string, unsigned short> reverse = getNodeNameToIndexMap();
+    std::unordered_map<unsigned short ,std::string> res;
     for (const auto &nameIndexPair : reverse ) {
         res[nameIndexPair.second] = nameIndexPair.first;
     }

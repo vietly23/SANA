@@ -10,10 +10,10 @@ Static Util Class for all utility functions
 */
 class Utils {
 public:
-    static void checkFileExists(const string &fileName);
+    static void checkFileExists(const std::string &fileName);
 
     static int RandInt(int low, int high);
 
-    static vector < vector<string> > fileToStringsByLines(const string &fileName);
+    static std::vector<std::vector<std::string>> fileToStringsByLines(const std::string &fileName);
 };
 #endif

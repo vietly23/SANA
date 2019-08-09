@@ -6,20 +6,19 @@
 #include <vector>
 #include <iostream>
 
-using namespace std;
-
 int main(int argc, char **argv) {
     if (argc < 3) {
         cerr << "Input must include two or more LEDA Graph file\n";
         return 1;
     }
-    vector <Graph> networkList;
+    std::vector <Graph> networkList;
     for (int i = 1; i < argc; i++) {
-        networkList.push_back(Utility::LoadBinaryGraphFromLEDAFile(argv[i]));
-        //networkList.push_back(Utility::LoadBinaryGraphFromEdgeList(argv[i]));
+        // networkList.push_back(Utility::LoadBinaryGraphFromLEDAFile(argv[i]));
+        // networkList.push_back(Utility::LoadBinaryGraphFromEdgeList(argv[i]));
     }
 
-    SANAConfiguration sanaConfig;
-    SANA sana(sanaConfig);
-    SANAResult results = sana.StartAligner(networkList);
+    // SANAConfiguration sanaConfig;
+    // SANA sana(sanaConfig);
+    // SANAResult results = sana.StartAligner(networkList);
+    std::cout << "hi\n";
 }

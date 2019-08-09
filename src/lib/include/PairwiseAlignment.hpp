@@ -6,21 +6,21 @@
 
 class PairwiseAlignment: public Alignment {
 
+    std::vector<ushort> A;
+
 public:
+
     PairwiseAlignment() = default;
     ~PairwiseAlignment() = default;
     PairwiseAlignment(const PairwiseAlignment &rhs);
 
-    void setVector(vector<ushort> &x) {
+    void setVector(std::vector<unsigned short> &x) {
         A = x;
     }
-    vector<ushort> &getVec() {
+    std::vector<unsigned short> &getVec() {
         return A;
     }
     bool printDefinitionErrors(const Graph &G1, const Graph &G2);
-
-private:
-    vector <ushort> A;
 };
 
 #endif

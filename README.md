@@ -2,15 +2,15 @@
 
 ## Compile & Run
 
-- Run command `cmake .` 
-- Run `make`
+- Run script `./make-distribution` 
+- Inside of the `build` directory, run `make`
 
 ## Testing
+Tests are disabled while refactoring
+~~To run the unit tests, do the following:~~ 
 
-To run the unit tests, do the following:
-
-- Run command `cmake .`
-- Run `make test`
+- ~~Run command `cmake .`~~
+- ~~Run `make test`~~
 
 
 ## Contributions

@@ -7,6 +7,8 @@ project(SANA
 	LANGUAGES CXX)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+SET(Boost_USE_STATIC_LIBS ON)
 
+add_subdirectory(boost-cmake)
 add_subdirectory(src)
 # add_subdirectory(test)

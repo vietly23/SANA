@@ -17,6 +17,9 @@ add_library(sana_lib
     Random.cpp 
     Utils.cpp
 )
+
+target_link_libraries(sana_lib Boost::log)
+
 target_include_directories(sana_lib
     PUBLIC
         $<INSTALL_INTERFACE:include>    

@@ -1,13 +1,15 @@
-#include "Utility.hpp"
-#include "BinaryGraph.hpp"
-#include "Utils.hpp"
-#include "Graph.hpp"
 #include <string>
 #include <fstream>
 #include <iostream> //Only for debugging
 #include <vector>
 #include <sstream>
 #include <unordered_map>
+
+#include <sana/BinaryGraph.hpp>
+#include <sana/Utils.hpp>
+#include <sana/Graph.hpp>
+
+#include "Utility.hpp"
 
 using namespace std;
 

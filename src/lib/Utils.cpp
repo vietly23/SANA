@@ -2,10 +2,9 @@
 #include <sstream>
 #include <fstream>
 #include <iterator>
-#include "Random.hpp"
-#include "Utils.hpp"
 
-using namespace std;
+#include <sana/Random.hpp>
+#include <sana/Utils.hpp>
 
 RandomNumberGenerator randObj;
 mt19937 gen(randObj.GetSeed());
@@ -16,15 +15,15 @@ int Utils::RandInt(int low, int high) {
     return dis(fastGen);
 }
 
-vector < vector<string> > Utils::fileToStringsByLines(const string &fileName) {
+std::vector< std::vector<std::string> > Utils::fileToStringsByLines(const std::string &fileName) {
     checkFileExists(fileName);
-    ifstream ifs(fileName.c_str());
-    vector < vector<string> > result(0);
+    std::ifstream ifs(fileName.c_str());
+    std::vector<std::vector<std::string>> result(0);
     string token;
     while(getline(ifs,token)) {
-       istringstream iss(token);
-       vector <string> words;
-       copy(istream_iterator<string>(iss), istream_iterator<string>(), back_inserter(words)) ;
+        std::istringstream iss(token);
+       std::vector<string> words;
+       copy(std::istream_iterator<std::string>(iss), std::istream_iterator<std::string>(), back_inserter(words)) ;
         result.push_back(words);
     }
     ifs.close();
@@ -32,9 +31,9 @@ vector < vector<string> > Utils::fileToStringsByLines(const string &fileName) {
 }
 
 void Utils::checkFileExists(const string &fileName) {
-    stringstream errorMsg;
-    ifstream fileCheck;
-    fileCheck.exceptions(ifstream::failbit | ifstream::badbit);
+    std::stringstream errorMsg;
+    std::ifstream fileCheck;
+    fileCheck.exceptions(std::ifstream::failbit | std::ifstream::badbit);
     try {
         fileCheck.open(fileName);
     } catch (std::ifstream::failure &e) {

@@ -1,11 +1,12 @@
 #include <vector>
 #include <iostream>
 
-#include "boost/program_options.hpp"
+#include <boost/program_options.hpp>
 
-#include "SANAResult.hpp"
-#include "SANAConfiguration.hpp"
-#include "Graph.hpp"
+#include <sana/SANAResult.hpp>
+#include <sana/SANAConfiguration.hpp>
+#include <sana/Graph.hpp>
+
 #include "Utility.hpp"
 
 namespace {
@@ -28,7 +29,7 @@ int main(int argc, char **argv) {
         po::variables_map vm;
         desc.add_options()
             ("help", "Produce help message")
-            ("networks", po::value<std::vector<std::string>>()->multitoken()->required()
+            ("networks", po::value<std::vector<std::string>>()->multitoken()->required(),
              "List of networks: must be of type LEDA");
         try {
             po::store(po::parse_command_line(argc, argv, desc), vm);

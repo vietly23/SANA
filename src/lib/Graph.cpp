@@ -1,5 +1,3 @@
-#include "Graph.hpp"
-#include "Utils.hpp"
 #include <vector>
 #include <fstream>
 #include <string>
@@ -7,6 +5,9 @@
 #include <unordered_set>
 #include <utility>
 #include <sstream>
+
+#include <sana/Graph.hpp>
+#include <sana/Utils.hpp>
 
 using namespace std;
 

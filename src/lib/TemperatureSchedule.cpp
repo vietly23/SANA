@@ -1,6 +1,7 @@
 #include <math.h>
 #include <unordered_map>
-#include "TemperatureSchedule.hpp"
+
+#include <sana/TemperatureSchedule.hpp>
 
 void TemperatureSchedule::SetTemperatureDecay(const double &decay) {
     tDecay = decay;

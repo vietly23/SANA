@@ -4,8 +4,8 @@
 #include <iomanip>
 #include <ios>
 #include <string>
-#include "Timer.hpp"
-using namespace std;
+
+#include <sana/Timer.hpp>
 
 Timer::Timer() {}
 
@@ -24,8 +24,8 @@ double Timer::elapsed() const {
     return (currentTime - startTime) / 1000.0;
 }
 
-string Timer::elapsedString() const {
-    ostringstream s;
+std::string Timer::elapsedString() const {
+    std::ostringstream s;
     s << fixed << setprecision(3) << elapsed() << "s";
     return s.str();
 }

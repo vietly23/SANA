@@ -1,4 +1,4 @@
-#include "BinaryGraph.hpp"
+#include <sana/BinaryGraph.hpp>
 
 
 void BinaryGraph::AddEdge(const unsigned int &node1, const unsigned int &node2, const unsigned int& weight) {

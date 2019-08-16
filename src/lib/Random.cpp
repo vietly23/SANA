@@ -1,8 +1,7 @@
-#include "Random.hpp"
 #include <random>
 #include <unistd.h>
 
-using namespace std;
+#include <sana/Random.hpp>
 
 RandomNumberGenerator::RandomNumberGenerator() {
     SetSeed(gethostid() + time(0) + getpid());

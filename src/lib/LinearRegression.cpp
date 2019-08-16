@@ -5,7 +5,8 @@
 #include <vector>
 #include <unordered_map> 
 #include <array>
-#include "LinearRegression.hpp"
+
+#include <sana/LinearRegression.hpp>
 
 using namespace std;
 

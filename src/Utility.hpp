@@ -1,7 +1,8 @@
-#include "Graph.hpp"
-#include "BinaryGraph.hpp"
 #include <string>
-#include "PairwiseAlignment.hpp"
+
+#include <sana/Graph.hpp>
+#include <sana/BinaryGraph.hpp>
+#include <sana/PairwiseAlignment.hpp>
 
 class Utility {
 public:

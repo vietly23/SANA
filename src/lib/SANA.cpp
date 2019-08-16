@@ -11,7 +11,7 @@ SANA::SANA() {
 
 }
 
-SANA::SANA(const SANAConfiguration &sanaConfig): config(sanaConfig) {
+SANA::SANA(const sana::config::SANAConfiguration &sanaConfig): config(sanaConfig) {
 
 }
 

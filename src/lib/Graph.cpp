@@ -9,8 +9,6 @@
 #include <sana/Graph.hpp>
 #include <sana/Utils.hpp>
 
-using namespace std;
-
 std::string Graph::GetName() const {
     return name;
 }
@@ -79,7 +77,8 @@ void Graph::AddRandomEdge() {
 }
 
 void Graph::RemoveRandomEdge() {
-    int node1 = 0, node2 = 0;
+    int node1 = 0;
+    int node2 = 0;
     while(node1 == node2 or adjLists[node1][node2]) {
         node1 = RandomNode();
         node2 = RandomNode();

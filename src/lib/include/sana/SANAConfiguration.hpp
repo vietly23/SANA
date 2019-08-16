@@ -1,14 +1,14 @@
-#ifndef SANACONFIGURATION_H
-#define SANACONFIGURATION_H
+#ifndef SANA_CONFIGURATION
+#define SANA_CONFIGURATION
+#include <vector>
+#include <string>
 
-class SANAConfiguration {
+#include <sana/Graph.hpp>
 
-public:
-    SANAConfiguration() {};
-
-    bool isPairwise = true;
-
-private:    
-};
-
+namespace sana::config {
+    struct SANAConfiguration {
+        std::vector<Graph> graphList;
+    };
+}
 #endif
+

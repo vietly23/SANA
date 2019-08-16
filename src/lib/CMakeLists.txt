@@ -26,6 +26,6 @@ target_include_directories(sana_lib
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
 )
 target_compile_options(sana_lib PRIVATE -Werror)
-target_compile_features(sana_lib PRIVATE cxx_std_11)
+target_compile_features(sana_lib PRIVATE cxx_std_17)
 
 # target_include_directories(lib-sana PUBLIC ${Included-headers-directories})

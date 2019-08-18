@@ -7,11 +7,13 @@
 #include <sana/PairwiseNetPile.hpp>
 #include <sana/TemperatureSchedule.hpp>
 
+typedef sana::config::SANAConfiguration SANAConfiguration;
+
 SANA::SANA() {
 
 }
 
-SANA::SANA(const sana::config::SANAConfiguration &sanaConfig): config(sanaConfig) {
+SANA::SANA(const SANAConfiguration &sanaConfig): config(sanaConfig) {
 
 }
 

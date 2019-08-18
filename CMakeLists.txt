@@ -11,4 +11,4 @@ SET(Boost_USE_STATIC_LIBS ON)
 
 add_subdirectory(boost-cmake)
 add_subdirectory(src)
-# add_subdirectory(test)
+add_subdirectory(test)

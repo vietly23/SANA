@@ -1,25 +1,22 @@
+#include "AdjacencyMatrixIterator.hpp"
 #include "BinaryGraph.hpp"
+#include <algorithm>
 
-
-void BinaryGraph::AddEdge(const unsigned int &node1, const unsigned int &node2, const unsigned int& weight) {
-    Graph::AddEdge(node1, node2);
-    if(adjacencyMatrix[node1][node2] == false && node1 != node2)
-        adjacencyMatrix[node1][node2] = adjacencyMatrix[node2][node1] = true;
+namespace {
+}
+// TODO: Keep edge property *NOT* in the adjmatrix. A graph could represent an edge with false value, but in this case we will take the edge to be true
+void BinaryGraph::AddEdge(const unsigned int &node1, const unsigned int &node2, const unsigned bool& weight) {
 }
 
 void BinaryGraph::RemoveEdge(const unsigned int &node1, const unsigned int &node2) {
-    Graph::RemoveEdge(node1, node2);
     adjacencyMatrix[node1][node2] = adjacencyMatrix[node2][node1] = false;
 }
 
-void BinaryGraph::SetNumNodes(const unsigned int &numNodes) {
-    Graph::SetNumNodes(numNodes);
-    adjacencyMatrix.resize(numNodes);
-    for (int i = 0; i < numNodes; i++)
-        adjacencyMatrix[i].resize(numNodes);
+void BinaryGraph::AddVertex() {
+    adjacencyMatrix.resize(requiredSpace(++numNodes));
 }
 
 void BinaryGraph::ClearGraph() {
-    Graph::ClearGraph();
     adjacencyMatrix.clear();
 }
+

@@ -1,24 +1,29 @@
 #ifndef BINARYGRAPH_HPP
 #define BINARYGRAPH_HPP
-#include "Graph.hpp"
+
 #include <vector>
+#include "AdjacencyMatrixIterator.hpp"
+#include "Graph.hpp"
 
-using namespace std;
-
-class BinaryGraph : public Graph {
+class BinaryGraph : public Graph<bool> {
 public:
-    BinaryGraph(){};
-    ~BinaryGraph(){};
+    typedef AdjacencyMatrixIterator<bool> edge_iterator;
 
-    virtual void AddEdge(const unsigned int &node1, const unsigned int &node2, const unsigned int &weight = 1);
-    virtual void RemoveEdge(const unsigned int &node1, const unsigned int &node2);
+    virtual void AddEdge(const unsigned int &source, const unsigned int &target, const bool &weight);
+    virtual void RemoveEdge(const unsigned int &source, const unsigned int &target);
 
-    virtual void SetNumNodes(const unsigned int &numNodes);
-    
+    unsigned int GetNumNodes() const;
+    unsigned int GetNumEdges() const;
+    virtual bool GetEdgeValue(const unsigned int &source, const unsigned int &target);
+    virtual edge_iterator GetNeighbors(const unsigned int &source);
+    // TODO: keep node names as internal mapping
+    virtual void AddVertex();
+    virtual void RemoveVertex(const unsigned int &vertex);
     virtual void ClearGraph();
 
 private:
-    vector<vector<bool> > adjacencyMatrix;
+    unsigned int numNodes;
+    unsigned int numEdges;
 };
 
 #endif

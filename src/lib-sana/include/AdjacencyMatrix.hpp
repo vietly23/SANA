@@ -3,6 +3,8 @@
 
 #include <tuple>
 #include <vector>
+#include <memory>
+
 /*
  * Bare iterator over STL container. Not ideal, but will suffice for now.
  * Assumes that this is an undirected graph.
@@ -30,37 +32,47 @@ namespace sana::detail {
         using value_type = Edge;
         using difference_type = std::ptrdiff_t;
         using pointer = Edge*;
-        using reference = Edge&;
+        using reference = value_type;
         AdjMatrixIterator(unsigned int startVertex, unsigned int offset, 
                 unsigned int numVertices): startVertex(startVertex), offset(offset), 
                                             numVertices(numVertices) {};
+
         bool operator==(const AdjMatrixIterator &i) {
-            return &i.adjMatrix == &adjMatrix && i.startVertex == startVertex;
+            return &i.adjMatrix == &adjMatrix && i.startVertex == startVertex && i.offset == offset;
         }
+
         bool operator!=(const AdjMatrixIterator &i) {
             return !(*this == i); 
         }
+
         AdjMatrixIterator operator++() { 
-            ++offset; 
-            if (offset >= numVertices) {
-                offset = 0;
-                startVertex++;
-            }
+            do {
+                ++offset; 
+                if (offset >= numVertices) {
+                    offset = 0;
+                    startVertex++;
+                }
+            } while (startVertex < numVertices && !adjacencyMatrix[translateVertex(startVertex, offset)]);
+
             return *this;
         }
+
         AdjMatrixIterator operator++(int) { 
             auto t = *this; 
             ++off; 
             return t; 
         }
-        reference operator*() const { return buf[off % Capacity]; }
-        pointer operator->() const { return buf[off % Capacity]; }
+
+        reference operator*() const { 
+            return Edge(startVertex, offset); 
+        }
     private:
         unsigned int startVertex;
         unsigned int numVertices;
         unsigned int offset;
         const std::vector<bool>* const adjMatrix;
     }
+
     // Utility methods for address translation
     unsigned int translateVertex(const unsigned int &source, const unsigned int &target) {
         unsigned int row = std::max(source, target);
@@ -71,28 +83,5 @@ namespace sana::detail {
     unsigned int requiredSpace(const unsigned int &numVertices) {
         return numVertices * (numVertices + 1) / 2;
     }
-}
-    /*
-RingIter(T *buf, std::size_t offset)
-: buf(buf), off(offset)
-{}
-bool operator!=(const RingIter &i) {
-return !(*this == i);
-}
-RingIter & operator++()    { ++off; return *this; }
-RingIter operator++(int) { auto t = *this; ++off; return t; }
-RingIter & operator--()    { --off; return *this; }
-RingIter operator--(int) { auto t = *this; --off; return t; }
-std::ptrdiff_t operator-(RingIter const& sibling) const { return off - sibling.off; }
-RingIter & operator+=(int amount) { off += amount; return *this; }
-RingIter & operator-=(int amount) { off -= amount; return *this; }
-bool operator<(RingIter const&sibling) const { return off < sibling.off;}
-bool operator<=(RingIter const&sibling) const { return off <= sibling.off; }
-bool operator>(RingIter const&sibling) const { return off > sibling.off; }
-bool operator>=(RingIter const&sibling) const { return off >= sibling.off; }
-T& operator[](int index) const { return *(*this + index); }
-T& operator*() const { return buf[off % Capacity]; }
-}; 
-*/
 }
 #endif

@@ -1,18 +1,26 @@
-# This is NOT the way to construct a test library. Leaving for now
-# while I refactor the actual library itself
-file(GLOB_RECURSE SOURCES "*.cpp")
-file(GLOB_RECURSE HEADERS "*.hpp")
+ADD_EXECUTABLE(test-lib-sana 
 
-ADD_EXECUTABLE(test-lib-sana ${HEADERS} ${SOURCES})
+    # temperature schedule sanity checks
+    temperatureSchedule/LinearRegressionTest.cpp
+    temperatureSchedule/TemperatureScheduleTest.cpp
+
+    # graph sanity checks
+    # graph/GraphTest.cpp
+    # container type tests
+    detail/AdjacencyMatrixTest.cpp
+
+    main.cpp
+)
 
 TARGET_LINK_LIBRARIES(test-lib-sana
     PUBLIC
         sana_lib
         gtest
         gtest_main
-        # libgmock
 )
 
-add_test(NAME test-lib-sana
+ADD_TEST(NAME test-lib-sana
     COMMAND test-lib-sana)
+
+add_custom_target(test-verbose COMMAND ${CMAKE_CTEST_COMMAND} --verbose)
 

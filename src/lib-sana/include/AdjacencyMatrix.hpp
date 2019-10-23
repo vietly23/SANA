@@ -8,12 +8,6 @@
 #include "Edge.hpp"
 
 namespace sana::detail {
-    // TODO: Make unit-tests for following cases:
-    // translateVertex(0, 0) == 0
-    // translateVertex(3, 2) == 8
-    // translateVertex(2, 3) == 8
-    // translateVertex(1, 1) == 2
-    // translateVertex(1, 0) == 1
     unsigned int translateVertex(const unsigned int &source, const unsigned int &target) {
         unsigned int row = std::max(source, target);
         unsigned int col = std::min(source, target);
@@ -30,7 +24,7 @@ namespace sana::detail {
      * 1) Not thread-safe
      * 2) Assumes false => no edge, true => edge
      */
-    class UndirectedAdjacencyMatrix {
+    class AdjacencyMatrix {
     public:
         void resize(unsigned int numVertices) {
             adjacencyMatrix.resize(requiredSpace(numVertices));
@@ -41,9 +35,11 @@ namespace sana::detail {
         void setEdgeValue(unsigned int source, unsigned int target, bool value) {
             adjacencyMatrix[translateVertex(source, target)] = value;
         }
+        void clear() {
+            adjacencyMatrix.clear();
+        }
     private:
         std::vector<bool> adjacencyMatrix;
-        // Utility methods for address translation
     };
 
     class AdjMatrixIterator {

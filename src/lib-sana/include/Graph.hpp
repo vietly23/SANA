@@ -15,14 +15,14 @@ public:
     virtual EdgeProperty GetEdgeValue(const unsigned int &source, const unsigned int &target);
     // TODO: Change to use VertexProperty.
     virtual void AddVertex();
-    unsigned int GetNumVertices() const;
-    unsigned int GetNumEdges() const;
+    virtual unsigned int GetNumVertices() const;
+    virtual unsigned int GetNumEdges() const;
     virtual void ClearGraph();
 
     std::string GetName() const {
         return name;
     };
-    void SetName(const string& name) {
+    void SetName(const std::string& name) {
         this->name.assign(name);
     };
 private:

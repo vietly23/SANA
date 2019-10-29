@@ -1,8 +1,7 @@
-add_library(sana_lib INTERFACE
+add_library(sana_lib
     # Graph Types
-    # Graph/BinaryGraph.cpp 
-    # Graph/WeightedGraph.cpp
-    # # Graph/Graph.cpp
+    graph/BinaryGraph.cpp 
+    # graph/WeightedGraph.cpp
 
     # # SANA Measures
     # Measures/EdgeCorrectness.cpp
@@ -34,7 +33,10 @@ add_library(sana_lib INTERFACE
 )
 
 # TODO: Set back to public 
-target_include_directories(sana_lib INTERFACE ${CMAKE_CURRENT_LIST_DIR}/include)
+target_include_directories(sana_lib PUBLIC 
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/>
+    $<INSTALL_INTERFACE:include/sanalib>
+)
 
 # target_include_directories(sana_lib INTERFACE
 #     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>

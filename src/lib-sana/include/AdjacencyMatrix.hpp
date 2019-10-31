@@ -18,6 +18,43 @@ namespace sana::detail {
         return numVertices * (numVertices + 1) / 2;
     }
 
+    class AdjMatrixIterator {
+    public:
+        typedef Edge<bool> edge;
+        typedef const std::vector<bool>* const container;
+
+        AdjMatrixIterator(container adjMatrix, unsigned int start, 
+                unsigned int offset, unsigned int end,  unsigned int size):
+            start(start), offset(offset), end(end), size(size), adjMatrix(adjMatrix) {}
+
+
+        bool hasNext() {
+            return start != end;
+        }
+
+        edge next() { 
+            if (not this->hasNext()) {
+                throw std::out_of_range("AdjMatrixIterator::next() : index is out of range");
+            }
+            while (start < end and 
+                    adjMatrix->at(translateVertex(start, offset))) {
+                ++offset;
+                if (offset >= size) {
+                    offset = 0;
+                    start++;
+                }
+            }
+            return edge(start, offset, true);
+        }
+
+    private:
+        unsigned int start;
+        unsigned int end;
+        unsigned int offset;
+        unsigned int size;
+        container adjMatrix;
+    };
+
     /*
      * Assumes that this is an undirected graph.
      * Makes the following assumptions
@@ -28,6 +65,7 @@ namespace sana::detail {
     public:
         void resize(unsigned int numVertices) {
             adjacencyMatrix.resize(requiredSpace(numVertices));
+            size = numVertices;
         }
         bool edgeValue(unsigned int source, unsigned int target) {
             return adjacencyMatrix.at(translateVertex(source, target));
@@ -35,44 +73,16 @@ namespace sana::detail {
         void setEdgeValue(unsigned int source, unsigned int target, bool value) {
             adjacencyMatrix[translateVertex(source, target)] = value;
         }
+        AdjMatrixIterator edges(unsigned int source) {
+            return AdjMatrixIterator(&adjacencyMatrix, source, 0, source + 1, size);
+        }
         void clear() {
             adjacencyMatrix.clear();
         }
     private:
         std::vector<bool> adjacencyMatrix;
+        unsigned int size = 0;
     };
 
-    class AdjMatrixIterator {
-    public:
-        typedef Edge<bool> edge;
-        typedef const std::vector<bool>* const container;
-        AdjMatrixIterator(container adjMatrix, unsigned int startVertex, unsigned int offset, 
-            unsigned int numVertices): adjMatrix(adjMatrix), startVertex(startVertex), offset(offset),
-            numVertices(numVertices) {}; 
-
-        bool hasNext() {
-            return startVertex != numVertices;
-        }
-
-        edge next() { 
-            if (not this->hasNext()) {
-                throw std::out_of_range("AdjMatrixIterator::next() : index is out of range");
-            }
-            while (startVertex < numVertices and 
-                    adjMatrix->at(translateVertex(startVertex, offset))) {
-                ++offset;
-                if (offset >= numVertices) {
-                    offset = 0;
-                    startVertex++;
-                }
-            }
-            return edge(startVertex, offset, true);
-        }
-    private:
-        unsigned int startVertex;
-        unsigned int numVertices;
-        unsigned int offset;
-        container adjMatrix;
-    };
 }
 #endif

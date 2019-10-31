@@ -5,8 +5,8 @@
 
 // TODO: Keep edge property *NOT* in the adjmatrix. A graph could represent an edge with false value, but in this case we will take the edge to be true
 void BinaryGraph::AddEdge(const unsigned int &source, const unsigned int &target, 
-        const unsigned bool& value) {
-    adjacencyMatrix.setEdgeValue(source, target, weight);
+        const BinaryGraph::EdgeProperty& value) {
+    adjacencyMatrix.setEdgeValue(source, target, value);
     numEdges++;
 }
 
@@ -17,7 +17,7 @@ void BinaryGraph::RemoveEdge(const unsigned int &source, const unsigned int &tar
 
 void BinaryGraph::AddVertex() {
     if (numNodes == capacity) {
-        capacity = numNodes * 2
+        capacity = numNodes * 2;
         adjacencyMatrix.resize(capacity);
     }
     numNodes++;
@@ -29,7 +29,7 @@ void BinaryGraph::ClearGraph() {
     numNodes = 0;
 }
 
-unsigned int BinaryGraph::GetNumNodes() const {
+unsigned int BinaryGraph::GetNumVertices() const {
    return numNodes; 
 }
 

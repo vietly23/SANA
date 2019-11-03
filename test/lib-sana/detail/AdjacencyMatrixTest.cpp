@@ -3,7 +3,7 @@
 
 #include <gtest/gtest.h>
 
-#include "AdjacencyMatrix.hpp"
+#include <graph/detail/AdjacencyMatrix.hpp>
 
 TEST(AdjacencyMatrixIteratorSuite, TestUtilites) {
     using namespace sana::detail;

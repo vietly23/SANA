@@ -1,4 +1,4 @@
-#include "WeightedGraph.hpp"
+#include <graph/WeightedGraph.hpp>
 
 void WeightedGraph::AddEdge(const unsigned int &node1, const unsigned int &node2, const unsigned int& weight) {
     Graph::AddEdge(node1, node2, weight);

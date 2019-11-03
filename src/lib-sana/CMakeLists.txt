@@ -3,6 +3,9 @@ add_library(sana_lib
     graph/BinaryGraph.cpp 
     # graph/WeightedGraph.cpp
 
+    # Parsers
+    parser/LedaParser.cpp
+
     # # SANA Measures
     # Measures/EdgeCorrectness.cpp
     # Measures/ExternalWeightedEdgeConservation.cpp

@@ -2,12 +2,23 @@
 #define SANA_EDGE
 
 template<typename T>
-struct Edge {
-    const unsigned int sourceVertex;
-    const unsigned int targetVertex;
-    const T value;
+class Edge {
+public:
+    Edge(unsigned int source, unsigned int target, T value): 
+        source(source), target(target), value(value) {};
+    const unsigned int getSource() const {
+        return source;
+    }
+    const unsigned int getTarget() const {
+        return target;
+    }
+    const T getValue() const {
+        return value;
+    }
 
-    Edge(unsigned int sourceVertex, unsigned int targetVertex, T value): 
-        sourceVertex(sourceVertex), targetVertex(targetVertex), value(value) {};
+private:
+    unsigned int source;
+    unsigned int target;
+    T value;
 };
 #endif

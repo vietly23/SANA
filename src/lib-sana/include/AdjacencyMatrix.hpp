@@ -21,11 +21,20 @@ namespace sana::detail {
     class AdjMatrixIterator {
     public:
         typedef Edge<bool> edge;
-        typedef const std::vector<bool>* const container;
+        typedef const std::vector<bool>* container;
 
         AdjMatrixIterator(container adjMatrix, unsigned int start, 
                 unsigned int offset, unsigned int end,  unsigned int size):
-            start(start), offset(offset), end(end), size(size), adjMatrix(adjMatrix) {}
+            adjMatrix(adjMatrix), start(start), offset(offset), end(end), size(size) {}
+
+        AdjMatrixIterator& operator=(const AdjMatrixIterator& other) {
+            adjMatrix = other.adjMatrix;
+            start = other.start;
+            offset = other.offset;
+            end = other.end;
+            size = other.size;
+            return *this;
+        }
 
 
         bool hasNext() {
@@ -36,18 +45,26 @@ namespace sana::detail {
             if (not this->hasNext()) {
                 throw std::out_of_range("AdjMatrixIterator::next() : index is out of range");
             }
-            while (start < end and 
+            while (start < end and not
                     adjMatrix->at(translateVertex(start, offset))) {
-                ++offset;
-                if (offset >= size) {
-                    offset = 0;
-                    start++;
-                }
+                increment();
             }
-            return edge(start, offset, true);
+            unsigned int source = start;
+            unsigned int target = increment();
+            return edge(source, target, true);
         }
 
     private:
+        unsigned int increment() {
+            unsigned int tempValue = offset;
+            ++offset;
+            if (offset == size) {
+                offset = 0;
+                start++;
+            }
+            return tempValue;
+        }
+
         unsigned int start;
         unsigned int end;
         unsigned int offset;

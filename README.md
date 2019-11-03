@@ -14,6 +14,11 @@ To run the unit tests, do the following:
 - Go to the `build` directory
 - Run `make test`
 
+### Memory Leakage 
+
+For a sanity check, please run `valgrind ./build/bin/test-lib-sana`. Valgrind *should* catch any egregious
+memory leaks.
+
 
 ## Contributions
 To contribute to this project, please make sure to adhere to the

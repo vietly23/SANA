@@ -3,9 +3,10 @@
 #include <graph/BinaryGraph.hpp>
 #include <graph/detail/AdjacencyMatrix.hpp>
 
+using edgeType = BinaryGraph::edgeType;
 // TODO: Keep edge property *NOT* in the adjmatrix. A graph could represent an edge with false value, but in this case we will take the edge to be true
 void BinaryGraph::AddEdge(const unsigned int &source, const unsigned int &target, 
-        const BinaryGraph::EdgeType& value) {
+        const edgeType& value) {
     adjacencyMatrix.setEdgeValue(source, target, value);
     numEdges++;
 }

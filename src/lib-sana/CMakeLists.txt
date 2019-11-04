@@ -4,7 +4,8 @@ add_library(sana_lib
     # graph/WeightedGraph.cpp
 
     # Parsers
-    parser/LedaParser.cpp
+    parser/leda/LedaParser.cpp
+    parser/leda/LedaTokenizer.cpp
 
     # # SANA Measures
     # Measures/EdgeCorrectness.cpp

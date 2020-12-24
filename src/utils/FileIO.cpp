@@ -1,15 +1,17 @@
-#include "FileIO.hpp"
-#include <stdexcept>
-#include <iostream>
-#include <sstream>
+#include "utils/FileIO.hpp"
+
+#include <algorithm>
+#include <cstring> //strerror
+#include <dirent.h>
 #include <fstream>
 #include <iterator>
-#include <dirent.h>
+#include <iostream>
+#include <stdexcept>
+#include <sstream>
 #include <sys/types.h>
 #include <sys/stat.h>
-#include <string.h> //strerror
-#include <algorithm>
-#include "utils.hpp"
+
+#include "utils/utils.hpp"
 
 vector<string> FileIO::fileToLines(const string& fileName) {
     return breakFileIntoStrings(fileName, true);

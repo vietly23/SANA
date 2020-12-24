@@ -1,5 +1,5 @@
-#include "EdgeRatio.hpp"
-#include <vector>
+#include "measures/EdgeRatio.hpp"
+
 #include <array>
 
 EdgeRatio::EdgeRatio(const Graph* G1, const Graph* G2): Measure(G1, G2, "er") {}

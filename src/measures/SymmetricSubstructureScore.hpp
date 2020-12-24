@@ -1,6 +1,6 @@
 #ifndef SYMMETRICSUBSTRUCTURESCORE_HPP
 #define SYMMETRICSUBSTRUCTURESCORE_HPP
-#include "Measure.hpp"
+#include "measures/Measure.hpp"
 
 class SymmetricSubstructureScore: public Measure {
 public:

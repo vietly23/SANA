@@ -1,6 +1,6 @@
 #ifndef IMPORTANCE_HPP
 #define IMPORTANCE_HPP
-#include "LocalMeasure.hpp"
+#include "measures/localMeasures/LocalMeasure.hpp"
 
 class Importance: public LocalMeasure {
 public:

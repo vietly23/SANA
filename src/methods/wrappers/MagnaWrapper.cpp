@@ -1,6 +1,7 @@
-#include "MagnaWrapper.hpp"
-#include "../../arguments/GraphLoader.hpp"
-#include "../../utils/FileIO.hpp"
+#include "methods/wrappers/MagnaWrapper.hpp"
+
+#include "arguments/GraphLoader.hpp"
+#include "utils/FileIO.hpp"
 
 using namespace std;
 

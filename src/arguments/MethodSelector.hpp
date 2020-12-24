@@ -2,12 +2,12 @@
 #define METHODSELECTOR_HPP_
 
 #include "ArgumentParser.hpp"
-#include "../methods/Method.hpp"
-#include "../Graph.hpp"
-#include "../measures/MeasureCombination.hpp"
-#include "../methods/wrappers/LGraalWrapper.hpp"
-#include "../methods/wrappers/HubAlignWrapper.hpp"
-#include "../methods/wrappers/SANAPISWAPWrapper.hpp"
+#include "methods/Method.hpp"
+#include "Graph.hpp"
+#include "measures/MeasureCombination.hpp"
+#include "methods/wrappers/LGraalWrapper.hpp"
+#include "methods/wrappers/HubAlignWrapper.hpp"
+#include "methods/wrappers/SANAPISWAPWrapper.hpp"
 
 class MethodSelector {
 public:

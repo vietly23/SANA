@@ -4,11 +4,11 @@
 #include <string>
 #include <map>
 
-#include "Mode.hpp"
-#include "../arguments/ArgumentParser.hpp"
-#include "../measures/Measure.hpp"
-#include "../methods/Method.hpp"
-#include "../Graph.hpp"
+#include "Graph.hpp"
+#include "arguments/ArgumentParser.hpp"
+#include "modes/Mode.hpp"
+#include "measures/Measure.hpp"
+#include "methods/Method.hpp"
 
 using namespace std;
 

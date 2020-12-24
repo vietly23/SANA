@@ -1,5 +1,5 @@
-#include "WAVEWrapper.hpp"
-#include "../../arguments/GraphLoader.hpp"
+#include "methods/wrappers/WAVEWrapper.hpp"
+#include "arguments/GraphLoader.hpp"
 using namespace std;
 
 const string PROGRAM = "./run-WAVE.sh";

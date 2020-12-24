@@ -1,8 +1,9 @@
 #ifndef SEQUENCE_HPP
 #define SEQUENCE_HPP
-#include "LocalMeasure.hpp"
 #include <unordered_map>
-#include "../../arguments/GraphLoader.hpp"
+
+#include "arguments/GraphLoader.hpp"
+#include "measures/localMeasures/LocalMeasure.hpp"
 
 class Sequence: public LocalMeasure {
 public:

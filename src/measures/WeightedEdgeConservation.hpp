@@ -2,9 +2,10 @@
 #define WEIGHTEDEDGECONSERVATION_HPP
 #include <vector>
 #include <iostream>
-#include "Measure.hpp"
-#include "localMeasures/LocalMeasure.hpp"
-#include "../Graph.hpp"
+
+#include "Graph.hpp"
+#include "measures/Measure.hpp"
+#include "measures/localMeasures/LocalMeasure.hpp"
 
 class WeightedEdgeConservation: public Measure {
 public:

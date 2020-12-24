@@ -1,11 +1,11 @@
 #ifndef SQUAREDEDGESCORE_HPP_
 #define SQUAREDEDGESCORE_HPP_
-
 #include <vector>
 #include <iostream>
-#include "Measure.hpp"
-#include "localMeasures/LocalMeasure.hpp"
-#include "../Graph.hpp"
+
+#include "Graph.hpp"
+#include "measures/Measure.hpp"
+#include "measures/localMeasures/LocalMeasure.hpp"
 
 class SquaredEdgeScore : public Measure {
 public:

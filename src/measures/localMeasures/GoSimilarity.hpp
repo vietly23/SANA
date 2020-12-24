@@ -1,7 +1,8 @@
 #ifndef GOSIMILARITY_HPP
 #define GOSIMILARITY_HPP
-#include "LocalMeasure.hpp"
 #include <unordered_map>
+
+#include "measures/localMeasures/LocalMeasure.hpp"
 
 class GoSimilarity: public LocalMeasure {
 public:

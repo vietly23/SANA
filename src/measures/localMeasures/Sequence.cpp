@@ -1,11 +1,13 @@
-#include "Sequence.hpp"
-#include <vector>
-#include <unordered_map>
+#include "measures/localMeasures/Sequence.hpp"
+
+#include <cassert>
+#include <iostream>
 #include <fstream>
 #include <sstream>
-#include <iostream>
-#include <cassert>
-#include "../../utils/FileIO.hpp"
+#include <unordered_map>
+#include <vector>
+
+#include "utils/FileIO.hpp"
 
 using namespace std;
 

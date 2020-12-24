@@ -289,3 +289,15 @@ Alignment Alignment::randomColorRestrictedAlignment(const Graph& G1, const Graph
     }
     return alig;   
 }
+
+// Viet - Didn't see this in SANA2, maybe deprecated? Leaving here to fix compile issues
+// Assuming that graphs are not switched to remove this variable
+Alignment Alignment::writeEdgeList(const Graph &G1, const Graph &G2, ostream &edgeListStream) const {
+    typedef unordered_map<uint,string> NodeIndexMap;
+    NodeIndexMap mapG1 = G1.getIndexToNodeNameMap();
+    NodeIndexMap mapG2 = G2.getIndexToNodeNameMap();
+    for (uint i = 0; i < A.size(); ++i){
+            edgeListStream << mapG2[A[i]] << "\t" << mapG1[i] << endl;
+            edgeListStream << mapG1[i] << "\t" << mapG2[A[i]] << endl;
+    }
+}

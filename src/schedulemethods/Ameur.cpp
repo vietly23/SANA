@@ -1,8 +1,9 @@
+#include "schedulemethods/Ameur.hpp"
+
 #include <iostream>
 #include <vector>
 
-#include "Ameur.hpp"
-#include "../utils/utils.hpp"
+#include "utils/utils.hpp"
 
 using namespace std;
 

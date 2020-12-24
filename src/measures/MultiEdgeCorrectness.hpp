@@ -1,7 +1,7 @@
 #ifndef MULTIEDGECORRECTNESS_HPP
 #define MULTIEDGECORRECTNESS_HPP
-#include "Measure.hpp"
-#include "../Graph.hpp"
+#include "Graph.hpp"
+#include "measures/Measure.hpp"
 
 class MultiEdgeCorrectness: public Measure {
 public:

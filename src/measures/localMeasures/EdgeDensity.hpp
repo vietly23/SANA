@@ -1,6 +1,6 @@
 #ifndef EDGEDENSITY_HPP
 #define EDGEDENSITY_HPP
-#include "LocalMeasure.hpp"
+#include "measures/localMeasures/LocalMeasure.hpp"
 
 class EdgeDensity: public LocalMeasure {
 public:

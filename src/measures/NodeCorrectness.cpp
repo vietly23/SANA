@@ -1,4 +1,5 @@
-#include "NodeCorrectness.hpp"
+#include "measures/NodeCorrectness.hpp"
+
 #include <vector>
 #include <iostream>
 
@@ -40,7 +41,8 @@ unordered_map<string, double> NodeCorrectness::evalByColor(const Alignment& A, c
         res[colorName] = (double) correctCount / (double) totalCount;
     }
 
-    uint trueAValidCount = trueAWithValidCountAppended.at(trueAWithValidCountAppended.size()-1);
+    // Unused variable? tripping compiler -Werror
+    // uint trueAValidCount = trueAWithValidCountAppended.at(trueAWithValidCountAppended.size()-1);
     assert(totalCountAllColors == trueAValidCount); //sanity check
     return res;
 }

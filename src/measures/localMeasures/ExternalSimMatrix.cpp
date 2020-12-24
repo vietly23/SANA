@@ -1,9 +1,11 @@
-#include <iostream>
-#include "ExternalSimMatrix.hpp"
-#include "../../utils/utils.hpp"
-#include "../../utils/FileIO.hpp"
+#include "measures/localMeasures/ExternalSimMatrix.hpp"
 
+#include <iostream>
 #include <string>
+
+#include "utils/utils.hpp"
+#include "utils/FileIO.hpp"
+
 using namespace std;
 
 ExternalSimMatrix::ExternalSimMatrix(const Graph* G1, const Graph* G2, string file, int format): LocalMeasure(G1, G2, "esim") {

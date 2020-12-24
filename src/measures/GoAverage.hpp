@@ -1,6 +1,6 @@
 #ifndef GOAVERAGE_HPP
 #define GOAVERAGE_HPP
-#include "Measure.hpp"
+#include "measures/Measure.hpp"
 
 class GoAverage: public Measure {
 public:

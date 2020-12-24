@@ -1,7 +1,7 @@
 #ifndef HILLCLIMBING_HPP
 #define HILLCLIMBING_HPP
-#include "../measures/MeasureCombination.hpp"
-#include "Method.hpp"
+#include "measures/MeasureCombination.hpp"
+#include "methods/Method.hpp"
 #include <map>
 
 class HillClimbing: public Method {

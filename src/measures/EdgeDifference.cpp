@@ -1,5 +1,4 @@
-#include "EdgeDifference.hpp"
-#include <vector>
+#include "measures/EdgeDifference.hpp"
 
 EdgeDifference::EdgeDifference(const Graph* G1, const Graph* G2): 
     Measure(G1, G2, "ed") {}

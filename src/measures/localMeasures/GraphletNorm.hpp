@@ -1,6 +1,6 @@
 #ifndef GRAPHLETNORM_HPP
 #define GRAPHLETNORM_HPP
-#include "LocalMeasure.hpp"
+#include "measures/localMeasures/LocalMeasure.hpp"
 
 class GraphletNorm: public LocalMeasure {
 public:

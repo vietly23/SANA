@@ -1,7 +1,7 @@
 #ifndef NETGO_HPP
 #define NETGO_HPP
-#include "localMeasures/LocalMeasure.hpp"
-#include "Measure.hpp"
+#include "measures/Measure.hpp"
+#include "measures/localMeasures/LocalMeasure.hpp"
 
 class NetGO: public Measure {
 public:

@@ -1,14 +1,16 @@
-#include "GoSimilarity.hpp"
-#include <vector>
+#include "measures/localMeasures/GoSimilarity.hpp"
+
+#include <algorithm>
+#include <cassert>
 #include <iostream>
 #include <fstream>
-#include <sstream>
-#include <algorithm>
 #include <set>
-#include <cassert>
-#include <unordered_set>
+#include <sstream>
 #include <unordered_map>
-#include "../../utils/FileIO.hpp"
+#include <unordered_set>
+#include <vector>
+
+#include "utils/FileIO.hpp"
 
 
 using namespace std;

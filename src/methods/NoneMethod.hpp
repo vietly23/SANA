@@ -2,8 +2,7 @@
 #define NONEMETHOD_HPP
 #include <string>
 #include <iostream>
-#include <iostream>
-#include "Method.hpp"
+#include "methods/Method.hpp"
 
 class NoneMethod : public Method {
 public:

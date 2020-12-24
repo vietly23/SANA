@@ -1,6 +1,6 @@
+#include "methods/NoneMethod.hpp"
 #include <string>
 #include <vector>
-#include "NoneMethod.hpp"
 using namespace std;
 
 NoneMethod::NoneMethod(const Graph* G1, const Graph* G2, string startAName):

@@ -1,8 +1,8 @@
 #include <iostream>
-#include "ArgumentParser.hpp"
-#include "../utils/utils.hpp"
-#include "../utils/FileIO.hpp"
-#include "SupportedArguments.hpp"
+#include "arguments/ArgumentParser.hpp"
+#include "utils/utils.hpp"
+#include "utils/FileIO.hpp"
+#include "arguments/SupportedArguments.hpp"
 using namespace std;
 
 ArgumentParser::ArgumentParser(int argc, char* argv[]) {
@@ -51,7 +51,7 @@ ArgumentParser::ArgumentParser(int argc, char* argv[]) {
         if (arg == "-h" or arg == "--help") helpFound = true;
         else if (helpFound) helpArgs.insert(arg);
         else if (arg == "-V" or arg == "--version"){
-	    cout << SANAversion << endl;
+	    cout << SANA_VERSION << endl;
 	    exit(0);
 	}
     }

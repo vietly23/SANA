@@ -8,10 +8,11 @@
 #include <unistd.h>
 #include <thread>
 #include <future>
-#include "GraphLoader.hpp"
-#include "../utils/Timer.hpp"
-#include "../utils/FileIO.hpp"
-#include "../Alignment.hpp"
+#include "arguments/ArgumentParser.hpp"
+#include "arguments/GraphLoader.hpp"
+#include "utils/Timer.hpp"
+#include "utils/FileIO.hpp"
+#include "Alignment.hpp"
 
 using namespace std;
 

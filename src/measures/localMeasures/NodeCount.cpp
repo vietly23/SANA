@@ -1,7 +1,9 @@
-#include "NodeCount.hpp"
-#include <vector>
+#include "measures/localMeasures/NodeCount.hpp"
+
 #include <iostream>
-#include "../../utils/FileIO.hpp"
+#include <vector>
+
+#include "utils/FileIO.hpp"
 
 NodeCount::NodeCount(const Graph* G1, const Graph* G2, const vector<double>& distWeights) : LocalMeasure(G1, G2, "nodec") {
     vector<double> normWeights(distWeights);

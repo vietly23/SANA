@@ -5,8 +5,8 @@
 #include <vector>
 #include <array>
 #include <string>
-#include "ArgumentParser.hpp"
-#include "../Graph.hpp"
+#include "arguments/ArgumentParser.hpp"
+#include "Graph.hpp"
 
 #ifndef MULTI_PAIRWISE
 #ifndef FLOAT_WEIGHTS

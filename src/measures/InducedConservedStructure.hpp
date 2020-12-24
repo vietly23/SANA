@@ -1,6 +1,6 @@
 #ifndef INDUCEDCONSERVEDSTRUCTURE_HPP
 #define INDUCEDCONSERVEDSTRUCTURE_HPP
-#include "Measure.hpp"
+#include "measures/Measure.hpp"
 
 class InducedConservedStructure: public Measure {
 public:

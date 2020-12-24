@@ -1,6 +1,6 @@
 #ifndef EDGEDIFFERENCE_HPP
 #define EDGEDIFFERENCE_HPP
-#include "Measure.hpp"
+#include "measures/Measure.hpp"
 
 class EdgeDifference: public Measure {
 public:

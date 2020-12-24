@@ -1,5 +1,6 @@
+#include "measures/InducedConservedStructure.hpp"
+
 #include <vector>
-#include "InducedConservedStructure.hpp"
 
 InducedConservedStructure::InducedConservedStructure(const Graph* G1, const Graph* G2) : Measure(G1, G2, "ics") {
 }

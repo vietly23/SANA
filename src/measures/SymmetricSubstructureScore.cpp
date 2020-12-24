@@ -1,5 +1,6 @@
+#include "measures/SymmetricSubstructureScore.hpp"
+
 #include <vector>
-#include "SymmetricSubstructureScore.hpp"
 
 SymmetricSubstructureScore::SymmetricSubstructureScore(const Graph* G1, const Graph* G2) : Measure(G1, G2, "s3") {
 }

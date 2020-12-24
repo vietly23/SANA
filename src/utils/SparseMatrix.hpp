@@ -1,11 +1,10 @@
 #ifndef SPARSEMATRIX_H
 #define SPARSEMATRIX_H
-
+#include <cassert>
+#include <cmath>
+#include <iostream>
 #include <unordered_map>
 #include <vector>
-#include <assert.h>
-#include <math.h>
-#include <iostream>
 
 using namespace std;
 

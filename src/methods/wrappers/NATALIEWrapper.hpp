@@ -1,7 +1,7 @@
 #ifndef NATAILEWRAPPER_HPP
 #define NATALIEWRAPPER_HPP
 
-#include "WrappedMethod.hpp"
+#include "methods/wrappers/WrappedMethod.hpp"
 using namespace std;
 
 class NATALIEWrapper: public WrappedMethod {

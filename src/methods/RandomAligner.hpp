@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 #include <iostream>
-#include "Method.hpp"
+#include "methods/Method.hpp"
 
 using namespace std;
 

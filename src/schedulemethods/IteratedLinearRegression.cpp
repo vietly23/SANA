@@ -1,8 +1,9 @@
+#include "schedulemethods/IteratedLinearRegression.hpp"
+
 #include <iostream>
 #include <map>
 
-#include "IteratedLinearRegression.hpp"
-#include "../utils/LinearRegression.hpp"
+#include "utils/LinearRegression.hpp"
 
 using namespace std;
 

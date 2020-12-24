@@ -3,7 +3,7 @@
 
 #include <vector>
 
-#include "ScheduleMethod.hpp"
+#include "schedulemethods/ScheduleMethod.hpp"
 
 using namespace std;
 

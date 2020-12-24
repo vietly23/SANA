@@ -1,5 +1,6 @@
-#include "GREATWrapper.hpp"
-#include "../../arguments/GraphLoader.hpp"
+#include "methods/wrappers/GREATWrapper.hpp"
+
+#include "arguments/GraphLoader.hpp"
 using namespace std;
 
 const string CONVERTER = "bio-graph";

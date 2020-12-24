@@ -1,7 +1,7 @@
 #ifndef LINEARREGRESSIONVINTAGE_HPP
 #define LINEARREGRESSIONVINTAGE_HPP
 
-#include "LinearRegressionModern.hpp"
+#include "schedulemethods/LinearRegressionModern.hpp"
 
 /* Original Linear Regression implementation */
 class LinearRegressionVintage : public LinearRegressionModern {

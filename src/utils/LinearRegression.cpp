@@ -1,12 +1,13 @@
 // Created by Hudson Hughes on 8/2/16.
 
-#include "LinearRegression.hpp"
+#include "utils/LinearRegression.hpp"
+
+#include <cassert>
+#include <cmath>
+#include <limits>
 #include <string>
 #include <tuple>
 #include <vector>
-#include <cmath>
-#include <limits>
-#include <assert.h>
 
 using namespace std;
 

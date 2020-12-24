@@ -2,18 +2,18 @@
 
 #ifndef LINEARREGRESSION_HPP_
 #define LINEARREGRESSION_HPP_
-
-#include "../arguments/ArgumentParser.hpp"
-#include "../arguments/SupportedArguments.hpp"
-#include "../arguments/modeSelector.hpp"
-#include "randomSeed.hpp"
 #include <fstream>
 #include <iostream>
-#include <string>
-#include <vector>
 #include <map>
+#include <string>
 #include <tuple>
-#include "utils.hpp"
+#include <vector>
+
+#include "arguments/ArgumentParser.hpp"
+#include "arguments/SupportedArguments.hpp"
+#include "arguments/modeSelector.hpp"
+#include "utils/randomSeed.hpp"
+#include "utils/utils.hpp"
 
 using namespace std;
 

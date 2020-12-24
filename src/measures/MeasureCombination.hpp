@@ -1,6 +1,5 @@
 #ifndef MEASURECOMBINATION_HPP
 #define MEASURECOMBINATION_HPP
-
 #include <string>
 #include <sstream>
 #include <fstream>
@@ -11,7 +10,7 @@
 #include <functional>
 #include <iomanip>
 
-#include "Measure.hpp"
+#include "measures/Measure.hpp"
 
 class MeasureCombination {
 public:

@@ -1,6 +1,6 @@
 #ifndef EDGERATIO_HPP
 #define EDGERATIO_HPP
-#include "Measure.hpp"
+#include "measures/Measure.hpp"
 
 class EdgeRatio: public Measure {
 public:

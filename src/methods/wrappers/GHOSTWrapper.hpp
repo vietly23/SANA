@@ -1,7 +1,7 @@
 #ifndef GHOSTWRAPPER_HPP
 #define GHOSTWRAPPER_HPP
 
-#include "WrappedMethod.hpp"
+#include "methods/wrappers/WrappedMethod.hpp"
 using namespace std;
 
 class GHOSTWrapper: public WrappedMethod {

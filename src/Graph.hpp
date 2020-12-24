@@ -9,11 +9,11 @@
 #include <iostream>
 #include <stdexcept>
 #include <cstdlib>
-#include <time.h>
+#include <ctime>
 #include <random>
 #include "utils/utils.hpp"
 #include "utils/Timer.hpp"
-#include "computeGraphlets.hpp"
+#include "utils/computeGraphlets.hpp"
 #include "utils/Matrix.hpp"
 
 using namespace std;
@@ -100,6 +100,8 @@ public:
     const Matrix<EDGE_T>* getAdjMatrix() const { return &adjMatrix; }
     const vector<string>* getNodeNames() const { return &nodeNames; }
     const unordered_map<string,uint>* getNodeNameToIndexMap() const { return &nodeNameToIndexMap; }
+    // Viet - Also not sure if we need this? Again, this is just to verify compile
+    unordered_map<uint,string> getIndexToNodeNameMap() const;
 
     //things that are computed when called
     uint randomNode() const;

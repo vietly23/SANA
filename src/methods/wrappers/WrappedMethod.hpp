@@ -1,11 +1,13 @@
 #ifndef WRAPPEDMETHOD_HPP_
 #define WRAPPEDMETHOD_HPP_
 
-#include <string>
-#include <vector>
 #include <iostream>
 #include <sstream>
-#include "../Method.hpp"
+#include <string>
+#include <vector>
+
+#include "Graph.hpp"
+#include "methods/Method.hpp"
 
 using namespace std;
 

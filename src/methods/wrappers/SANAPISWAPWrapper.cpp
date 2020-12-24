@@ -1,6 +1,7 @@
-#include "SANAPISWAPWrapper.hpp"
-#include "../../arguments/MethodSelector.hpp"
-#include "../../Report.hpp"
+#include "methods/wrappers/SANAPISWAPWrapper.hpp"
+
+#include "Report.hpp"
+#include "arguments/MethodSelector.hpp"
 
 using namespace std;
 

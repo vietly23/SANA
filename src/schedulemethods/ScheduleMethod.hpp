@@ -6,8 +6,8 @@
 #include <vector>
 #include <map>
 
-#include "../methods/SANA.hpp"
-#include "../utils/NormalDistribution.hpp"
+#include "methods/SANA.hpp"
+#include "utils/NormalDistribution.hpp"
 
 using namespace std;
 

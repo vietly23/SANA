@@ -1,6 +1,7 @@
+#include "measures/LargestCommonConnectedSubgraph.hpp"
+
 #include <vector>
 #include <cmath>
-#include "LargestCommonConnectedSubgraph.hpp"
 
 LargestCommonConnectedSubgraph::LargestCommonConnectedSubgraph(const Graph* G1, const Graph* G2) : Measure(G1, G2, "lccs") {
 }

@@ -2,10 +2,11 @@
 #define ParameterEstimation_H
 #include <vector>
 #include <string>
-#include "Mode.hpp"
-#include "../measures/Measure.hpp"
-#include "../methods/Method.hpp"
-#include "../Graph.hpp"
+
+#include "Graph.hpp"
+#include "modes/Mode.hpp"
+#include "measures/Measure.hpp"
+#include "methods/Method.hpp"
 
 using namespace std;
 

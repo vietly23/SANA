@@ -1,13 +1,14 @@
 #ifndef ALIGNMENT_HPP
 #define ALIGNMENT_HPP
 
+#include <algorithm>
+#include <array>
+#include <cassert>
+#include <iostream>
+#include <sstream>
 #include <string>
 #include <vector>
-#include <sstream>
-#include <array>
-#include <iostream>
-#include <cassert>
-#include <algorithm>
+
 #include "Graph.hpp"
 #include "utils/utils.hpp"
 
@@ -32,6 +33,10 @@ public:
     static Alignment loadPartialEdgeList(const Graph& G1, const Graph& G2, const string& fileName, bool byName);
     static Alignment loadMapping(const string& fileName);
     static Alignment randomColorRestrictedAlignment(const Graph& G1, const Graph& G2);
+
+    // Writing
+    // TODO: Figure if needed - VIET
+    Alignment writeEdgeList(const Graph& G1, const Graph& G2, ostream& edgeListStream) const;
     
     //returns a random alignment from a graph with n1 nodes to a graph with nodes n2 >= n1 nodes
     static Alignment random(uint n1, uint n2);

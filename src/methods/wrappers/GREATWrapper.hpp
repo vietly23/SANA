@@ -1,7 +1,7 @@
 #ifndef GREATWRAPPER_HPP
 #define GREATWRAPPER_HPP
 
-#include "WrappedMethod.hpp"
+#include "methods/wrappers/WrappedMethod.hpp"
 using namespace std;
 
 class GREATWrapper: public WrappedMethod {

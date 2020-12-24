@@ -1,7 +1,7 @@
 #ifndef STDIOBUF_HPP
 #define STDIOBUF_HPP
-
 #include <streambuf>
+#include <cstdio>
 
 #define BUFFER_SIZE 10240
 
@@ -17,7 +17,7 @@ public:
     ~stdiobuf() {
         if (file) {
             if (isPiped) pclose(file);
-            else fclose(file); 
+            else fclose(file);
         }
     }
     stdiobuf(const stdiobuf& other) {

@@ -3,7 +3,7 @@
 
 #include <string>
 
-#include "../arguments/ArgumentParser.hpp"
+#include "arguments/ArgumentParser.hpp"
 
 class Mode {
 public:

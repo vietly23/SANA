@@ -1,10 +1,12 @@
+#include "utils/Timer.hpp"
+
 #include <sys/time.h>
 #include <sys/resource.h>
 #include <sstream>
 #include <iomanip>
 #include <ios>
 #include <string>
-#include "Timer.hpp"
+
 using namespace std;
 
 Timer::Timer() {}

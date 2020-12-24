@@ -1,7 +1,8 @@
+#include "schedulemethods/LinearRegressionModern.hpp"
+
 #include <iostream>
 
-#include "LinearRegressionModern.hpp"
-#include "../utils/LinearRegression.hpp"
+#include "utils/LinearRegression.hpp"
 
 using namespace std;
 

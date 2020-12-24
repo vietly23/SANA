@@ -1,6 +1,7 @@
-#include "GEDEVOWrapper.hpp"
-#include "../../arguments/GraphLoader.hpp"
-#include "../../utils/ComputeGraphletsWrapper.hpp"
+#include "methods/wrappers/GEDEVOWrapper.hpp"
+
+#include "arguments/GraphLoader.hpp"
+#include "utils/ComputeGraphletsWrapper.hpp"
 using namespace std;
 
 const string CONVERTER = "python GWtoNTW.py";

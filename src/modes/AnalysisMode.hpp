@@ -1,9 +1,9 @@
 #ifndef ANALYSISMODE_HPP_
 #define ANALYSISMODE_HPP_
 
-#include "Mode.hpp"
-#include "../Graph.hpp"
-#include "../arguments/ArgumentParser.hpp"
+#include "Graph.hpp"
+#include "arguments/ArgumentParser.hpp"
+#include "modes/Mode.hpp"
 
 class AnalysisMode : public Mode {
 public:

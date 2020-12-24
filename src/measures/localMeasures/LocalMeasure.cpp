@@ -1,7 +1,9 @@
-#include "LocalMeasure.hpp"
-#include <vector>
+#include "measures/localMeasures/LocalMeasure.hpp"
+
 #include <iostream>
-#include "../../utils/FileIO.hpp"
+#include <vector>
+
+#include "utils/FileIO.hpp"
 
 using namespace std;
 

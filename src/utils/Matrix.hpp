@@ -1,9 +1,9 @@
 #ifndef MATRIX_HPP_
 #define MATRIX_HPP_
-
-#include "utils.hpp"
-#include "SparseMatrix.hpp"
 #include <vector>
+
+#include "utils/utils.hpp"
+#include "utils/SparseMatrix.hpp"
 
 using namespace std;
 

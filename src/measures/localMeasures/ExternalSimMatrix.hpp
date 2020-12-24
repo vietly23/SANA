@@ -1,7 +1,8 @@
 #ifndef EXTERNALSIMMATRIX_HPP
 #define EXTERNALSIMMATRIX_HPP
 #include <cstdio>
-#include "LocalMeasure.hpp"
+
+#include "measures/localMeasures/LocalMeasure.hpp"
 
 class ExternalSimMatrix: public LocalMeasure {
 public:

@@ -1,6 +1,7 @@
 #ifndef JACCARDSIMILARITYSCORE_HPP
 #define JACCARDSIMILARITYSCORE_HPP
-#include "Measure.hpp"
+#include "measures/Measure.hpp"
+
 #include <vector>
 
 class JaccardSimilarityScore: public Measure {

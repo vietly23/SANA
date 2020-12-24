@@ -1,4 +1,5 @@
-#include "EdgeExposure.hpp"
+#include "measures/EdgeExposure.hpp"
+
 #include <cmath>
 
 uint EdgeExposure::EDGE_SUM = 2;

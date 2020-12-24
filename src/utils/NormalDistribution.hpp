@@ -1,9 +1,9 @@
 #ifndef NORMALDISTRIBUTION_HPP
 #define NORMALDISTRIBUTION_HPP
-#include <string>
 #include <iostream>
+#include <string>
 #include <vector>
-#include "utils.hpp"
+#include "utils/utils.hpp"
 
 class NormalDistribution {
 public:

@@ -1,10 +1,12 @@
+#include "modes/AnalysisMode.hpp"
+
 #include <cassert>
 #include <utility>
-#include "AnalysisMode.hpp"
-#include "../utils/utils.hpp"
-#include "../arguments/measureSelector.hpp"
-#include "../arguments/GraphLoader.hpp"
-#include "../Report.hpp"
+
+#include "Report.hpp"
+#include "arguments/measureSelector.hpp"
+#include "arguments/GraphLoader.hpp"
+#include "utils/utils.hpp"
 
 Alignment loadAlignment(int format, const string& file, const Graph& G1, const Graph& G2) {
     string errorHelpMsg = "The following are supported\n1: sana.out format\n2: edge list format\n"

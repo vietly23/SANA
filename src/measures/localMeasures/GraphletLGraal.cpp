@@ -1,9 +1,11 @@
-#include "GraphletLGraal.hpp"
-#include <vector>
-#include <iostream>
+#include "measures/localMeasures/GraphletLGraal.hpp"
+
 #include <cmath>
-#include "../../utils/ComputeGraphletsWrapper.hpp"
-#include "../../utils/FileIO.hpp"
+#include <iostream>
+#include <vector>
+
+#include "utils/ComputeGraphletsWrapper.hpp"
+#include "utils/FileIO.hpp"
 using namespace std;
 
 GraphletLGraal::GraphletLGraal(const Graph* G1, const Graph* G2, uint maxGraphletSize):

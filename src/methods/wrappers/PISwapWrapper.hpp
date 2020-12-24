@@ -1,7 +1,7 @@
 #ifndef PISWAPWRAPPER_HPP
 #define PISWAPWRAPPER_HPP
 
-#include "WrappedMethod.hpp"
+#include "methods/wrappers/WrappedMethod.hpp"
 using namespace std;
 
 class PISwapWrapper: public WrappedMethod {

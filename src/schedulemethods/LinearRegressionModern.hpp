@@ -1,7 +1,7 @@
 #ifndef LINEARREGRESSIONMODERN_HPP
 #define LINEARREGRESSIONMODERN_HPP
 
-#include "ScheduleMethod.hpp"
+#include "schedulemethods/ScheduleMethod.hpp"
 
 /* New Linear Regression implementation better integrated with the other schedule methods */
 class LinearRegressionModern : public ScheduleMethod {

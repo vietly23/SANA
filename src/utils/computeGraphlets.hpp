@@ -1,16 +1,16 @@
 #ifndef COMPUTEGRAPHLETS_HPP
 #define COMPUTEGRAPHLETS_HPP
 
+#include <algorithm>
+#include <cassert>
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
-#include <cassert>
 #include <ctime>
 #include <iostream>
 #include <fstream>
 #include <set>
 #include <unordered_map>
-#include <algorithm>
 #include <vector>
 
 namespace computeGraphletsSource {

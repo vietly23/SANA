@@ -1,8 +1,9 @@
-#include "NodeDensity.hpp"
+#include "measures/localMeasures/NodeDensity.hpp"
+
 #include <vector>
 #include <queue>
 #include <iostream>
-#include "../../utils/FileIO.hpp"
+#include "utils/FileIO.hpp"
 
 using namespace std;
 

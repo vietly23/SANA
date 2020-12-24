@@ -1,10 +1,12 @@
-#include "MeasureCombination.hpp"
-#include "localMeasures/LocalMeasure.hpp"
+#include "measures/MeasureCombination.hpp"
+
 #include <sstream>
 #include <algorithm>
 #include <iterator>
 #include <string>
 #include <functional>
+
+#include "measures/localMeasures/LocalMeasure.hpp"
 
 MeasureCombination::MeasureCombination(){}
 MeasureCombination::~MeasureCombination() {

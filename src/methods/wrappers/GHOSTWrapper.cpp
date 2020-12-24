@@ -1,5 +1,6 @@
-#include "GHOSTWrapper.hpp"
-#include "../../arguments/GraphLoader.hpp"
+#include "methods/wrappers/GHOSTWrapper.hpp"
+
+#include "arguments/GraphLoader.hpp"
 
 using namespace std;
 

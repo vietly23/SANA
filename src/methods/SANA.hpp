@@ -1,6 +1,5 @@
 #ifndef SANA_HPP
 #define SANA_HPP
-#include "Method.hpp"
 #include <map>
 #include <tuple>
 #include <mutex>
@@ -10,12 +9,13 @@
 #include <list>
 #include <utility>
 #include <unordered_set>
-#include "../measures/localMeasures/LocalMeasure.hpp"
-#include "../measures/Measure.hpp"
-#include "../measures/MeasureCombination.hpp"
-#include "../utils/randomSeed.hpp"
-#include "../measures/ExternalWeightedEdgeConservation.hpp"
-#include "../measures/CoreScore.hpp"
+#include "measures/CoreScore.hpp"
+#include "measures/ExternalWeightedEdgeConservation.hpp"
+#include "measures/localMeasures/LocalMeasure.hpp"
+#include "measures/Measure.hpp"
+#include "measures/MeasureCombination.hpp"
+#include "methods/Method.hpp"
+#include "utils/randomSeed.hpp"
 
 using namespace std;
 

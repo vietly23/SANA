@@ -1,8 +1,10 @@
-#include "ComputeGraphletsWrapper.hpp"
+#include "utils/ComputeGraphletsWrapper.hpp"
+
 #include <sys/types.h>
 #include <sys/stat.h>
-#include "computeGraphlets.hpp"
-#include "FileIO.hpp"
+
+#include "utils/computeGraphlets.hpp"
+#include "utils/FileIO.hpp"
 using namespace std;
 
 vector<vector<uint>> ComputeGraphletsWrapper::loadGraphletDegreeVectors(const Graph& G, uint maxGraphletSize) {

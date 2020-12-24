@@ -1,8 +1,18 @@
+# Build files
+cmake-build-debug/
+cmake-build-*/
 *.o
 *~
+
+# Executables
 sana
 sana_dbg
 sana.exe
+sana.multi
+sana.float
+sana\.weighted
+parallel
+createShadow
 
 _objs/
 matrices/
@@ -24,7 +34,6 @@ experiments/*/results/
 *.pin
 *.psq
 *.aln
-*.align
 
 *.bitscores
 
@@ -48,10 +57,6 @@ wrappedAlgorithms/PISWAP/networkx/*/*/*.pyc
 
 *.txt
 *.localscores
-sana.multi
-sana.float
-parallel
-createShadow
 regression_test_baseline.txt
 /test/googletest/
 run_output.txt
@@ -64,16 +69,6 @@ callgrind.out.*
 core*
 coreFrequencies.txt
 
-#Vi/vim swp files
-**.swp
-.un~
-/cache/
-cache-pbad/
-
-
-.vscode/
-sana\.weighted
-
 regression-tests/CompressedFiles/
 regression-test.result
 regression-out
@@ -81,3 +76,17 @@ regression-out
 # Macbook files
 *.DS_Store
 src/*.DS_Store
+
+# ---- Editors ---
+# IDEA
+.idea/
+
+#Vi/vim swp files
+**.swp
+.un~
+/cache/
+cache-pbad/
+
+# Visual Studio
+.vscode/
+

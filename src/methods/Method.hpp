@@ -2,10 +2,11 @@
 #define METHOD_HPP
 #include <string>
 #include <iostream>
-#include "../Graph.hpp"
-#include "../utils/utils.hpp"
-#include "../Alignment.hpp"
-#include "../utils/Timer.hpp"
+
+#include "Alignment.hpp"
+#include "Graph.hpp"
+#include "utils/Timer.hpp"
+#include "utils/utils.hpp"
 
 class Method {
 public:

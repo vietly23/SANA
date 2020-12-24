@@ -1,4 +1,5 @@
-#include "SquaredEdgeScore.hpp"
+#include "measures/SquaredEdgeScore.hpp"
+
 #include <cmath>
 
 double SquaredEdgeScore::SES_DENOM;

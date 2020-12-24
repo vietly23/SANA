@@ -1,7 +1,7 @@
 #ifndef NODECORRECTNESS_HPP
 #define NODECORRECTNESS_HPP
 #include <vector>
-#include "Measure.hpp"
+#include "measures/Measure.hpp"
 
 class NodeCorrectness: public Measure {
 public:

@@ -1,7 +1,7 @@
 #ifndef PBADBINARYSEARCH_HPP
 #define PBADBINARYSEARCH_HPP
 
-#include "ScheduleMethod.hpp"
+#include "schedulemethods/ScheduleMethod.hpp"
 
 class PBadBinarySearch : public ScheduleMethod {
 public:

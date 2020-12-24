@@ -1,6 +1,7 @@
 #ifndef INVALIDMEASURE_HPP
 #define INVALIDMEASURE_HPP
-#include "Measure.hpp"
+
+#include "measures/Measure.hpp"
 
 class InvalidMeasure: public Measure {
 public:

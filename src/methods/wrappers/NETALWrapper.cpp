@@ -1,6 +1,6 @@
-#include "NETALWrapper.hpp"
-#include "../../arguments/GraphLoader.hpp"
-#include "../../utils/FileIO.hpp"
+#include "methods/wrappers/NETALWrapper.hpp"
+#include "arguments/GraphLoader.hpp"
+#include "utils/FileIO.hpp"
 
 using namespace std;
 

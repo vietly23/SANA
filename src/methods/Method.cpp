@@ -1,4 +1,4 @@
-#include "Method.hpp"
+#include "methods/Method.hpp"
 #include <cassert>
 #include <string>
 

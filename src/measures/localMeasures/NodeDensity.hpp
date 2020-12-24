@@ -1,6 +1,6 @@
 #ifndef NODEDENSITY_HPP
 #define NODEDENSITY_HPP
-#include "LocalMeasure.hpp"
+#include "measures/localMeasures/LocalMeasure.hpp"
 
 class NodeDensity: public LocalMeasure {
 public:

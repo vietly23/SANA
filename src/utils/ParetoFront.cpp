@@ -1,4 +1,4 @@
-#include "ParetoFront.hpp"
+#include "utils/ParetoFront.hpp"
 
 bool ParetoFront::isDominating(vector<double> &scores)
 {

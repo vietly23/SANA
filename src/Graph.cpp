@@ -1,20 +1,20 @@
 #include "Graph.hpp"
-#include <queue>
-#include <set>
-#include <unordered_set>
-#include <iterator>
-#include <cmath>
+
 #include <cassert>
-#include <sstream>
-#include <typeinfo> //typeid
-#include <fcntl.h>
-#include <unistd.h>
-#include <sys/file.h>
-#include <sys/types.h>
-#include <sys/stat.h>
+#include <cmath>
 #include <errno.h>
-#include <unistd.h>
+#include <fcntl.h>
+#include <iterator>
+#include <queue>
 #include <regex>
+#include <set>
+#include <sstream>
+#include <sys/file.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <typeinfo> //typeid
+#include <unistd.h>
+#include <unordered_set>
 
 using namespace std;
 
@@ -660,4 +660,13 @@ bool Graph::isWellDefined() const {
         return false;
     }
     return true;
+}
+
+unordered_map<uint, string> Graph::getIndexToNodeNameMap() const {
+    const unordered_map<string, uint> *reverse = getNodeNameToIndexMap();
+    unordered_map<uint,string> res;
+    for (const auto &nameIndexPair : *reverse ) {
+        res[nameIndexPair.second] = nameIndexPair.first;
+    }
+    return res;
 }

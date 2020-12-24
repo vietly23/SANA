@@ -2,10 +2,11 @@
 #define MULTIS3_HPP
 #include <vector>
 #include <iostream>
-#include "utils.hpp"
-#include "Measure.hpp"
-#include "localMeasures/LocalMeasure.hpp"
-#include "../Graph.hpp"
+
+#include "Graph.hpp"
+#include "measures/Measure.hpp"
+#include "measures/localMeasures/LocalMeasure.hpp"
+#include "utils/utils.hpp"
 
 extern uint NUM_GRAPHS;
 

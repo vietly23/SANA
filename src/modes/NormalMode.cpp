@@ -1,13 +1,15 @@
-#include "NormalMode.hpp"
+#include "modes/NormalMode.hpp"
+
 #include <cassert>
 #include <utility>
 #include <iostream>
-#include "../utils/utils.hpp"
-#include "../utils/FileIO.hpp"
-#include "../arguments/measureSelector.hpp"
-#include "../arguments/MethodSelector.hpp"
-#include "../arguments/GraphLoader.hpp"
-#include "../Report.hpp"
+
+#include "Report.hpp"
+#include "arguments/measureSelector.hpp"
+#include "arguments/MethodSelector.hpp"
+#include "arguments/GraphLoader.hpp"
+#include "utils/utils.hpp"
+#include "utils/FileIO.hpp"
 
 void NormalMode::run(ArgumentParser& args) {
     createFolders();

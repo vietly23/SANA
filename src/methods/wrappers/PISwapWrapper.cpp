@@ -1,5 +1,6 @@
-#include "PISwapWrapper.hpp"
-#include "../../arguments/GraphLoader.hpp"
+#include "methods/wrappers/PISwapWrapper.hpp"
+
+#include "arguments/GraphLoader.hpp"
 using namespace std;
 
 const string CONVERTER = "";

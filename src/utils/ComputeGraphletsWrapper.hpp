@@ -1,10 +1,10 @@
 #ifndef COMPUTEGRAPHLETSWRAPPER_H_
 #define COMPUTEGRAPHLETSWRAPPER_H_
-
 #include <vector>
 #include <string>
-#include "utils.hpp"
-#include "../Graph.hpp"
+
+#include "Graph.hpp"
+#include "utils/utils.hpp"
 
 using namespace std;
 

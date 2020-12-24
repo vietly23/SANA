@@ -1,10 +1,11 @@
+#include "schedulemethods/StatisticalTest.hpp"
+
 #include <iostream>
 #include <vector>
 
-#include "StatisticalTest.hpp"
-#include "../Alignment.hpp"
-#include "../utils/Timer.hpp"
-#include "../utils/NormalDistribution.hpp"
+#include "Alignment.hpp"
+#include "utils/Timer.hpp"
+#include "utils/NormalDistribution.hpp"
 
 using namespace std;
 

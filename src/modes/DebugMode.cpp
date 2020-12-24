@@ -1,23 +1,23 @@
-#include "DebugMode.hpp"
+#include "modes/DebugMode.hpp"
 
 #include <algorithm>
 #include <utility>
-#include "../utils/utils.hpp"
 
-#include "../arguments/ArgumentParser.hpp"
-#include "../arguments/measureSelector.hpp"
-#include "../arguments/MethodSelector.hpp"
-#include "../arguments/GraphLoader.hpp"
+#include "arguments/ArgumentParser.hpp"
+#include "arguments/measureSelector.hpp"
+#include "arguments/MethodSelector.hpp"
+#include "arguments/GraphLoader.hpp"
 
-#include "../measures/MeasureCombination.hpp"
-#include "../measures/localMeasures/GoSimilarity.hpp"
-#include "../methods/Method.hpp"
-#include "../methods/SANA.hpp"
-#include "../schedulemethods/LinearRegressionVintage.hpp"
-#include "../Graph.hpp"
-#include "../Alignment.hpp"
-#include "../complementaryProteins.hpp"
+#include "Graph.hpp"
+#include "Alignment.hpp"
 #include "NormalMode.hpp"
+#include "complementaryProteins.hpp"
+#include "measures/MeasureCombination.hpp"
+#include "measures/localMeasures/GoSimilarity.hpp"
+#include "methods/Method.hpp"
+#include "methods/SANA.hpp"
+#include "schedulemethods/LinearRegressionVintage.hpp"
+#include "utils/utils.hpp"
 
 void DebugMode::run(ArgumentParser& args) {
 

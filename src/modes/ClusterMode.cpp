@@ -1,8 +1,10 @@
-#include "ClusterMode.hpp"
+#include "modes/ClusterMode.hpp"
+
 #include <iostream>
-#include "../utils/utils.hpp"
-#include "../utils/FileIO.hpp"
-#include "../arguments/modeSelector.hpp"
+
+#include "arguments/modeSelector.hpp"
+#include "utils/utils.hpp"
+#include "utils/FileIO.hpp"
 
 using namespace std;
 

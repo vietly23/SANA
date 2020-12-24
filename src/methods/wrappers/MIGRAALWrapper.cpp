@@ -1,6 +1,7 @@
-#include "MIGRAALWrapper.hpp"
-#include "../../arguments/GraphLoader.hpp"
-#include "../../utils/FileIO.hpp"
+#include "methods/wrappers/MIGRAALWrapper.hpp"
+
+#include "arguments/GraphLoader.hpp"
+#include "utils/FileIO.hpp"
 
 using namespace std;
 

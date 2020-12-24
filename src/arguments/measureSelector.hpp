@@ -1,9 +1,9 @@
 #ifndef MEASURESELECTOR_H_
 #define MEASURESELECTOR_H_
 
-#include "ArgumentParser.hpp"
-#include "../Graph.hpp"
-#include "../measures/MeasureCombination.hpp"
+#include "arguments/ArgumentParser.hpp"
+#include "Graph.hpp"
+#include "measures/MeasureCombination.hpp"
 
 namespace measureSelector {
 

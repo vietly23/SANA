@@ -1,5 +1,5 @@
+#include "methods/RandomAligner.hpp"
 #include <iostream>
-#include "RandomAligner.hpp"
 
 using namespace std;
 

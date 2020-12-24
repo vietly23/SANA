@@ -1,9 +1,11 @@
-#include "Graphlet.hpp"
-#include <vector>
-#include <iostream>
+#include "measures/localMeasures/Graphlet.hpp"
+
 #include <cmath>
-#include "../../utils/ComputeGraphletsWrapper.hpp"
-#include "../../utils/FileIO.hpp"
+#include <iostream>
+#include <vector>
+
+#include "utils/ComputeGraphletsWrapper.hpp"
+#include "utils/FileIO.hpp"
 
 using namespace std;
 

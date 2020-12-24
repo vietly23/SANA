@@ -1,11 +1,13 @@
-#include "NetGO.hpp"
+#include "measures/NetGO.hpp"
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
 #include <vector>
 #include <unordered_set>
 #include <unordered_map>
-#include "localMeasures/GoSimilarity.hpp"
+
+#include "measures/localMeasures/GoSimilarity.hpp"
 
 using namespace std;
 

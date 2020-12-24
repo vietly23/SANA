@@ -1,7 +1,9 @@
-#include "MultiS3.hpp"
-#include "EdgeExposure.hpp"
+#include "measures/MultiS3.hpp"
+
 #include <cmath>
 #include <iostream>
+
+#include "measures/EdgeExposure.hpp"
 
 uint NUM_GRAPHS;
 double MultiS3::Normalization_factor = 2;

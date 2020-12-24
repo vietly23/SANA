@@ -1,5 +1,6 @@
-#include "CytoGEDEVOWrapper.hpp"
-#include "../../arguments/GraphLoader.hpp" 
+#include "methods/wrappers/CytoGEDEVOWrapper.hpp"
+
+#include "arguments/GraphLoader.hpp"
 using namespace std;
 
 const string CONVERTER = "";

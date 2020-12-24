@@ -1,6 +1,8 @@
 #ifndef LOCALMEASURE_HPP
 #define LOCALMEASURE_HPP
-#include "../Measure.hpp"
+#include <vector>
+#include "measures/Measure.hpp"
+#include "Graph.hpp"
 
 class LocalMeasure: public Measure {
 public:

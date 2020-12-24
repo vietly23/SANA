@@ -1,3 +1,4 @@
+#include "methods/HillClimbing.hpp"
 #include <string>
 #include <vector>
 #include <utility>
@@ -16,13 +17,12 @@
 #include <signal.h>
 #include <stdio.h>
 #include <unistd.h>
-#include "HillClimbing.hpp"
-#include "../measures/localMeasures/LocalMeasure.hpp"
-#include "../measures/localMeasures/GenericLocalMeasure.hpp"
-#include "../measures/WeightedEdgeConservation.hpp"
-#include "../measures/Measure.hpp"
-#include "../utils/Timer.hpp"
-#include "../utils/randomSeed.hpp"
+#include "measures/localMeasures/LocalMeasure.hpp"
+#include "measures/localMeasures/GenericLocalMeasure.hpp"
+#include "measures/Measure.hpp"
+#include "measures/WeightedEdgeConservation.hpp"
+#include "utils/randomSeed.hpp"
+#include "utils/Timer.hpp"
 
 using namespace std;
 

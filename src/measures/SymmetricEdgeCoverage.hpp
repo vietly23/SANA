@@ -1,6 +1,6 @@
 #ifndef SYMMETRICEDGECOVERAGE_HPP
 #define SYMMETRICEDGECOVERAGE_HPP
-#include "Measure.hpp"
+#include "measures/Measure.hpp"
 
 class SymmetricEdgeCoverage: public Measure {
 public:

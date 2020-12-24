@@ -1,6 +1,6 @@
 #ifndef LARGESTCOMMONCONNECTEDSUBGRAPH_HPP
 #define LARGESTCOMMONCONNECTEDSUBGRAPH_HPP
-#include "Measure.hpp"
+#include "measures/Measure.hpp"
 
 class LargestCommonConnectedSubgraph: public Measure {
 public:

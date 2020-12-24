@@ -1,16 +1,15 @@
 #ifndef PARETOFRONT_HPP
 #define PARETOFRONT_HPP
-
+#include <algorithm>
+#include <cassert>
+#include <cstdlib>
+#include <ctime>
+#include <fstream>
 #include <iostream>
 #include <iomanip>
 #include <map>
 #include <unordered_map>
 #include <vector>
-#include <stdlib.h>
-#include <time.h>
-#include <algorithm>
-#include <fstream>
-#include <cassert>
 
 using namespace std;
 

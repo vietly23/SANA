@@ -1,6 +1,6 @@
 #ifndef GRAPHLETLGRAAL_HPP_
 #define GRAPHLETLGRAAL_HPP_
-#include "LocalMeasure.hpp"
+#include "measures/localMeasures/LocalMeasure.hpp"
 
 class GraphletLGraal: public LocalMeasure {
 public:

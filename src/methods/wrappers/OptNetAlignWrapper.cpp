@@ -1,5 +1,5 @@
-#include "OptNetAlignWrapper.hpp"
-#include "../../arguments/GraphLoader.hpp"
+#include "methods/wrappers/OptNetAlignWrapper.hpp"
+#include "arguments/GraphLoader.hpp"
 using namespace std;
 
 const string PROGRAM   = "./optnetalign";

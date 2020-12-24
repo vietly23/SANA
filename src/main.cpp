@@ -1,10 +1,9 @@
-#include "arguments/ArgumentParser.hpp"
-#include "arguments/modeSelector.hpp"
-#include "utils/randomSeed.hpp"
-#include "utils/utils.hpp"
 #include <iostream>
-#include <stdlib.h>
-#include <stdio.h>
+#include <cstdlib>
+#include "arguments/ArgumentParser.hpp"
+#include "utils/randomSeed.hpp"
+#include "modes/Mode.hpp"
+#include "arguments/modeSelector.hpp"
 
 using namespace std;
 

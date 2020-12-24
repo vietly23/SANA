@@ -1,18 +1,20 @@
-#include "AlphaEstimation.hpp"
-#include "../utils/utils.hpp"
-#include "../utils/FileIO.hpp"
-#include "../utils/Timer.hpp"
-#include "Experiment.hpp"
-#include "../measures/Measure.hpp"
-#include "../measures/localMeasures/LocalMeasure.hpp"
-#include "../measures/localMeasures/Sequence.hpp"
-#include "../measures/localMeasures/Importance.hpp"
-#include "../measures/EdgeCorrectness.hpp"
-#include "../measures/SymmetricSubstructureScore.hpp"
-#include "../measures/WeightedEdgeConservation.hpp"
-#include "../measures/localMeasures/GraphletLGraal.hpp"
-#include "../Alignment.hpp"
+#include "modes/AlphaEstimation.hpp"
+
 #include <cassert>
+
+#include "Alignment.hpp"
+#include "measures/EdgeCorrectness.hpp"
+#include "measures/Measure.hpp"
+#include "measures/SymmetricSubstructureScore.hpp"
+#include "measures/WeightedEdgeConservation.hpp"
+#include "measures/localMeasures/GraphletLGraal.hpp"
+#include "measures/localMeasures/Importance.hpp"
+#include "measures/localMeasures/LocalMeasure.hpp"
+#include "measures/localMeasures/Sequence.hpp"
+#include "modes/Experiment.hpp"
+#include "utils/FileIO.hpp"
+#include "utils/Timer.hpp"
+#include "utils/utils.hpp"
 
 double AlphaEstimation::computeAlpha(Graph& G1, Graph& G2, string methodName, Measure* topMeasure) {
     string g1Name = G1.getName();

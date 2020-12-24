@@ -1,6 +1,6 @@
 #ifndef EDGECOUNT_HPP
 #define EDGECOUNT_HPP
-#include "LocalMeasure.hpp"
+#include "measures/localMeasures/LocalMeasure.hpp"
 
 class EdgeCount: public LocalMeasure {
 public:

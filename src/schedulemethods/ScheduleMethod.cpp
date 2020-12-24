@@ -1,9 +1,10 @@
-#include <iostream>
-#include <assert.h> 
+#include "schedulemethods/ScheduleMethod.hpp"
 
-#include "ScheduleMethod.hpp"
-#include "../utils/Timer.hpp"
-#include "../utils/LinearRegression.hpp"
+#include <cassert>
+#include <iostream>
+
+#include "utils/Timer.hpp"
+#include "utils/LinearRegression.hpp"
 
 using namespace std;
 

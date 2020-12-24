@@ -1,11 +1,11 @@
 #ifndef NORMALMODE_HPP_
 #define NORMALMODE_HPP_
 
-#include "Mode.hpp"
-#include "../Graph.hpp"
-#include "../arguments/ArgumentParser.hpp"
-#include "../measures/MeasureCombination.hpp"
-#include "../methods/Method.hpp"
+#include "Graph.hpp"
+#include "arguments/ArgumentParser.hpp"
+#include "measures/MeasureCombination.hpp"
+#include "methods/Method.hpp"
+#include "modes/Mode.hpp"
 
 using namespace std;
 

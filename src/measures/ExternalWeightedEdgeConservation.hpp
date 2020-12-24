@@ -1,12 +1,13 @@
 #ifndef EXTERNALWEIGHTEDEDGECONSERVATION_HPP
 #define EXTERNALWEIGHTEDEDGECONSERVATION_HPP
-#include <vector>
 #include <iostream>
 #include <map>
 #include <string>
-#include "Measure.hpp"
-#include "localMeasures/LocalMeasure.hpp"
-#include "../Graph.hpp"
+#include <vector>
+
+#include "Graph.hpp"
+#include "measures/Measure.hpp"
+#include "measures/localMeasures/LocalMeasure.hpp"
 
 using namespace std;
 

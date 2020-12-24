@@ -1,9 +1,11 @@
-#include "SimilarityMode.hpp"
+#include "modes/SimilarityMode.hpp"
+
 #include <cassert>
 #include <utility>
-#include "../utils/utils.hpp"
-#include "../arguments/measureSelector.hpp"
-#include "../arguments/GraphLoader.hpp"
+
+#include "arguments/GraphLoader.hpp"
+#include "arguments/measureSelector.hpp"
+#include "utils/utils.hpp"
 
 void SimilarityMode::run(ArgumentParser& args) {
     pair<Graph, Graph> graphs = GraphLoader::initGraphs(args);

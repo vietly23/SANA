@@ -1,6 +1,6 @@
 #ifndef GENERICLOCALMEASURE_HPP
 #define GENERICLOCALMEASURE_HPP
-#include "LocalMeasure.hpp"
+#include "measures/localMeasures/LocalMeasure.hpp"
 
 class GenericLocalMeasure: public LocalMeasure {
 public:

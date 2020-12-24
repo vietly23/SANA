@@ -1,7 +1,7 @@
 #ifndef OPTNETALIGNWRAPPER_HPP
 #define OPTNETALIGNWRAPPER_HPP
 
-#include "WrappedMethod.hpp"
+#include "methods/wrappers/WrappedMethod.hpp"
 using namespace std;
 
 class OptNetAlignWrapper: public WrappedMethod {

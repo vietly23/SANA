@@ -1,11 +1,11 @@
 #ifndef SCHEDULEUTILS_HPP
 #define SCHEDULEUTILS_HPP
 
-#include <vector>
-#include <string>
 #include <memory>
+#include <string>
+#include <vector>
 
-#include "ScheduleMethod.hpp"
+#include "schedulemethods/scheduleMethod.hpp"
 
 using namespace std;
 

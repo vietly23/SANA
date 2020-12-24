@@ -1,16 +1,18 @@
-#include "utils.hpp"
-#include <random>
-#include <vector>
+#include "utils/utils.hpp"
+
+#include <algorithm>
 #include <ctime>
-#include <map>
-#include <unordered_set>
 #include <cstdlib>
 #include <iostream>
-#include <sstream>
 #include <cstdio>
+#include <map>
+#include <random>
 #include <set>
-#include <algorithm>
-#include "randomSeed.hpp"
+#include <sstream>
+#include <unordered_set>
+#include <vector>
+
+#include "utils/randomSeed.hpp"
 
 using namespace std;
 

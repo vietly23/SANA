@@ -1,7 +1,7 @@
 #ifndef MAGNAWRAPPER_HPP
 #define MAGNAWRAPPER_HPP
 
-#include "WrappedMethod.hpp"
+#include "methods/wrappers/WrappedMethod.hpp"
 using namespace std;
 
 class MagnaWrapper: public WrappedMethod {

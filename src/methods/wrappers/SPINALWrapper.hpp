@@ -1,7 +1,7 @@
 #ifndef SPINALWRAPPER_HPP
 #define SPINALWRAPPER_HPP
 
-#include "WrappedMethod.hpp"
+#include "methods/wrappers/WrappedMethod.hpp"
 using namespace std;
 
 class SPINALWrapper: public WrappedMethod {

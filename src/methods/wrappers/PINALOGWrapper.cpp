@@ -1,5 +1,5 @@
-#include "PINALOGWrapper.hpp"
-#include "../../arguments/GraphLoader.hpp"
+#include "methods/wrappers/PINALOGWrapper.hpp"
+#include "arguments/GraphLoader.hpp"
 
 const string PROGRAM = "./pinalog1.0";
 

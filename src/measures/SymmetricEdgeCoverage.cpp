@@ -1,6 +1,8 @@
-#include "SymmetricEdgeCoverage.hpp"
+#include "measures/SymmetricEdgeCoverage.hpp"
+
 #include <vector>
 #include <iostream>
+
 SymmetricEdgeCoverage::SymmetricEdgeCoverage(const Graph* G1, const Graph* G2) : Measure(G1, G2, "sec") {
 }
 

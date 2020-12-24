@@ -1,6 +1,7 @@
 #ifndef NodeCount_HPP
 #define NodeCount_HPP
-#include "LocalMeasure.hpp"
+
+#include "measures/localMeasures/LocalMeasure.hpp"
 
 class NodeCount: public LocalMeasure {
 public:

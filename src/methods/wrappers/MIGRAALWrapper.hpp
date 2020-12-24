@@ -1,7 +1,7 @@
 #ifndef MIGRAALWRAPPER_HPP
 #define MIGRAALWRAPPER_HPP
 
-#include "WrappedMethod.hpp"
+#include "methods/wrappers/WrappedMethod.hpp"
 using namespace std;
 
 class MIGRAALWrapper: public WrappedMethod {

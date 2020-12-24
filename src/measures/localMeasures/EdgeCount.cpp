@@ -1,7 +1,9 @@
-#include <vector>
+#include "measures/localMeasures/EdgeCount.hpp"
+
 #include <iostream>
-#include "EdgeCount.hpp"
-#include "../../utils/FileIO.hpp"
+#include <vector>
+
+#include "utils/FileIO.hpp"
 
 using namespace std;
 

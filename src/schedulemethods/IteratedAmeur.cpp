@@ -1,9 +1,10 @@
+#include "schedulemethods/IteratedAmeur.hpp"
+
 #include <iostream>
 #include <vector>
 
-#include "IteratedAmeur.hpp"
-#include "../utils/utils.hpp"
 #include "Ameur.hpp"
+#include "utils/utils.hpp"
 
 using namespace std;
 

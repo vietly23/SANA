@@ -1,13 +1,14 @@
-#include "NormalDistribution.hpp"
-#include <string>
-#include <vector>
+#include "utils/NormalDistribution.hpp"
+
+#include <cmath>
 #include <iostream>
 #include <iomanip>
-#include <string>
 #include <map>
 #include <random>
-#include <cmath>
-#include "utils.hpp"
+#include <string>
+#include <vector>
+
+#include "utils/utils.hpp"
 using namespace std;
 
 constexpr double NormalDistribution::cof[];

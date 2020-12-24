@@ -1,10 +1,10 @@
 #ifndef MEASURE_HPP
 #define MEASURE_HPP
 #include <string>
-#include "../Graph.hpp"
-#include "../utils/utils.hpp"
-#include "../Alignment.hpp"
-#include "../utils/Timer.hpp"
+#include "Alignment.hpp"
+#include "Graph.hpp"
+#include "utils/Timer.hpp"
+#include "utils/utils.hpp"
 
 class Measure {
 public:

@@ -1,9 +1,10 @@
-#include "EdgeDensity.hpp"
+#include "measures/localMeasures/EdgeDensity.hpp"
 
-#include <vector>
-#include <queue>
 #include <iostream>
-#include "../../utils/FileIO.hpp"
+#include <queue>
+#include <vector>
+
+#include "utils/FileIO.hpp"
 
 using namespace std;
 

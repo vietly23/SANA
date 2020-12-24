@@ -1,20 +1,22 @@
-#include "ParameterEstimation.hpp"
+#include "modes/ParameterEstimation.hpp"
+
 #include <cassert>
 #include <sstream>
 #include <map>
-#include "Experiment.hpp"
-#include "../utils/Timer.hpp"
-#include "../utils/FileIO.hpp"
-#include "../measures/SymmetricSubstructureScore.hpp"
-#include "../measures/JaccardSimilarityScore.hpp"
-#include "../measures/EdgeCorrectness.hpp"
-#include "../measures/LargestCommonConnectedSubgraph.hpp"
-#include "../measures/NodeCorrectness.hpp"
-#include "../measures/NetGO.hpp"
-#include "../measures/InvalidMeasure.hpp"
-#include "../measures/localMeasures/GoSimilarity.hpp"
-#include "../Alignment.hpp"
-#include "../arguments/GraphLoader.hpp"
+
+#include "Alignment.hpp"
+#include "arguments/GraphLoader.hpp"
+#include "measures/EdgeCorrectness.hpp"
+#include "measures/InvalidMeasure.hpp"
+#include "measures/JaccardSimilarityScore.hpp"
+#include "measures/LargestCommonConnectedSubgraph.hpp"
+#include "measures/NetGO.hpp"
+#include "measures/NodeCorrectness.hpp"
+#include "measures/SymmetricSubstructureScore.hpp"
+#include "measures/localMeasures/GoSimilarity.hpp"
+#include "modes/Experiment.hpp"
+#include "utils/FileIO.hpp"
+#include "utils/Timer.hpp"
 
 const int ParameterEstimation::PRECISION_DECIMALS = 6;
 const double ParameterEstimation::minutes = 60;

@@ -1,13 +1,13 @@
 #ifndef LGRAALWRAPPER_HPP
 #define LGRAALWRAPPER_HPP
 
-#include <string>
-#include <vector>
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <string>
+#include <vector>
 
-#include "../Method.hpp"
+#include "methods/Method.hpp"
 using namespace std;
 
 class LGraalWrapper: public Method {

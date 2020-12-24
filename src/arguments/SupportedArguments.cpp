@@ -1,8 +1,8 @@
-#include "SupportedArguments.hpp"
 #include <iomanip> //to format the text console output when ./sana -h is executed.
 #include <sstream> //to format the text console output when ./sana -h is executed.
 #include <fstream> //to access a text file called helpOutput which contains information about how to run SANA
-#include "../utils/FileIO.hpp"
+#include "SupportedArguments.hpp"
+#include "utils/FileIO.hpp"
 
 using namespace std;
 

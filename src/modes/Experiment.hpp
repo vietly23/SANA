@@ -5,9 +5,9 @@
 #include <tuple>
 #include <map>
 
-#include "Mode.hpp"
-#include "../measures/Measure.hpp"
-#include "../Graph.hpp"
+#include "modes/Mode.hpp"
+#include "measures/Measure.hpp"
+#include "Graph.hpp"
 
 using namespace std;
 

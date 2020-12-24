@@ -4,11 +4,12 @@
 #include <unordered_map>
 #include <string>
 #include <vector>
-#include "Mode.hpp"
-#include "../Graph.hpp"
-#include "../arguments/ArgumentParser.hpp"
-#include "../measures/MeasureCombination.hpp"
-#include "../methods/Method.hpp"
+
+#include "Graph.hpp"
+#include "modes/Mode.hpp"
+#include "arguments/ArgumentParser.hpp"
+#include "measures/MeasureCombination.hpp"
+#include "methods/Method.hpp"
 
 using namespace std;
 

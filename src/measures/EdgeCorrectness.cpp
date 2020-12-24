@@ -1,6 +1,4 @@
-#include "EdgeCorrectness.hpp"
-#include <string>
-#include <vector>
+#include "measures/EdgeCorrectness.hpp"
 
 EdgeCorrectness::EdgeCorrectness(const Graph* G1, const Graph* G2) : Measure(G1, G2, "ec") {
 }

@@ -1,4 +1,5 @@
-#include "randomSeed.hpp"
+#include "utils/randomSeed.hpp"
+
 #include <random>
 #include <unistd.h>
 

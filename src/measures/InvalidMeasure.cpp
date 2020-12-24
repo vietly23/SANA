@@ -1,6 +1,7 @@
-#include <vector>
+#include "measures/InvalidMeasure.hpp"
+
 #include <iostream>
-#include "InvalidMeasure.hpp"
+#include <vector>
 
 using namespace std;
 

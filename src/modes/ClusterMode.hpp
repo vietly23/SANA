@@ -4,8 +4,8 @@
 #include <vector>
 #include <string>
 
-#include "Mode.hpp"
-#include "../arguments/ArgumentParser.hpp"
+#include "arguments/ArgumentParser.hpp"
+#include "modes/Mode.hpp"
 
 using namespace std;
 

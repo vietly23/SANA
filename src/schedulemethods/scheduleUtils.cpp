@@ -1,16 +1,17 @@
-#include <vector>
-#include <memory>
+#include "schedulemethods/scheduleUtils.hpp"
 
-#include "scheduleUtils.hpp"
-#include "ScheduleMethod.hpp"
-#include "LinearRegression.hpp"
-#include "LinearRegressionVintage.hpp"
-#include "LinearRegressionModern.hpp"
-#include "PBadBinarySearch.hpp"
-#include "Ameur.hpp"
-#include "IteratedAmeur.hpp"
-#include "StatisticalTest.hpp"
-#include "IteratedLinearRegression.hpp"
+#include <memory>
+#include <vector>
+
+#include "schedulemethods/ScheduleMethod.hpp"
+#include "utils/LinearRegression.hpp"
+#include "schedulemethods/LinearRegressionVintage.hpp"
+#include "schedulemethods/LinearRegressionModern.hpp"
+#include "schedulemethods/PBadBinarySearch.hpp"
+#include "schedulemethods/Ameur.hpp"
+#include "schedulemethods/IteratedAmeur.hpp"
+#include "schedulemethods/StatisticalTest.hpp"
+#include "schedulemethods/IteratedLinearRegression.hpp"
 
 using namespace std;
 

@@ -1,4 +1,5 @@
-#include "CreateShadow.hpp"
+#include "modes/CreateShadow.hpp"
+
 #include <cassert>
 #include <utility>
 #include <iostream>
@@ -6,12 +7,13 @@
 #include <string>
 #include <array>
 #include <algorithm>
-#include "../utils/utils.hpp"
-#include "../utils/FileIO.hpp"
-#include "../utils/Matrix.hpp"
-#include "../Graph.hpp"
-#include "../Alignment.hpp"
-#include "../arguments/GraphLoader.hpp"
+
+#include "Graph.hpp"
+#include "Alignment.hpp"
+#include "arguments/GraphLoader.hpp"
+#include "utils/utils.hpp"
+#include "utils/FileIO.hpp"
+#include "utils/Matrix.hpp"
 
 using namespace std;
 
@@ -187,7 +189,8 @@ void CreateShadow::createShadow(const string& outFile, const vector<string>& gra
             string sName1 = gNameToSName[gName1], sName2 = gNameToSName[gName2];
             uint shadNode1 = stoi(sName1.substr(5)), shadNode2 = stoi(sName2.substr(5)); //"shad_{i}" -> i
             if (shadNode1 > shadNode2) swap(shadNode1, shadNode2); //to avoid double-counting
-            shadNbrSets[shadNode1][shadNode2]++; //auto-inserts shadNode2 if missing
+            // TODO: VIET - handle case of multi-value graphs
+            // shadNbrSets[shadNode1][shadNode2]++; //auto-inserts shadNode2 if missing
         }
     }
 

@@ -1,8 +1,9 @@
-#include "ExternalWeightedEdgeConservation.hpp"
+#include "measures/ExternalWeightedEdgeConservation.hpp"
+
 #include <sstream>
-#include <fstream>
 #include <algorithm>
-#include "../utils/FileIO.hpp"
+
+#include "utils/FileIO.hpp"
 
 using namespace std;
 

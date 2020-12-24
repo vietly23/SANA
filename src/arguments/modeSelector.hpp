@@ -2,7 +2,7 @@
 #define MODESELECTOR_HPP_
 
 #include "ArgumentParser.hpp"
-#include "../modes/Mode.hpp"
+#include "modes/Mode.hpp"
 
 namespace modeSelector {
 

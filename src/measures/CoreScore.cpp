@@ -1,4 +1,4 @@
-#include "CoreScore.hpp"
+#include "measures/CoreScore.hpp"
 
 CoreScoreData::CoreScoreData() {}
 

@@ -1,8 +1,7 @@
 #ifndef CORESCORE_HPP
 #define CORESCORE_HPP
-
-#include "../utils/utils.hpp"
-#include "../utils/Matrix.hpp"
+#include "utils/utils.hpp"
+#include "utils/Matrix.hpp"
 
 using namespace std;
 

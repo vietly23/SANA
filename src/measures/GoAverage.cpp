@@ -1,9 +1,12 @@
-#include <vector>
+#include "measures/GoAverage.hpp"
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include "GoAverage.hpp"
-#include "localMeasures/GoSimilarity.hpp"
+#include <vector>
+
+#include "Alignment.hpp"
+#include "measures/localMeasures/GoSimilarity.hpp"
 using namespace std;
 
 GoAverage::GoAverage(Graph* G1, Graph* G2) :

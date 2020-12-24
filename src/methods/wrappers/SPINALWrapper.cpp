@@ -1,5 +1,6 @@
-#include "SPINALWrapper.hpp"
-#include "../../arguments/GraphLoader.hpp"
+#include "methods/wrappers/SPINALWrapper.hpp"
+
+#include "arguments/GraphLoader.hpp"
 using namespace std;
 
 const string CONVERTER = "python converter_to_gml.py";

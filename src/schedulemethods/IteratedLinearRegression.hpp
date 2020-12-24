@@ -1,6 +1,5 @@
 #ifndef ITERATEDLINEARREGRESSION_HPP
 #define ITERATEDLINEARREGRESSION_HPP
-
 #include "LinearRegressionModern.hpp"
 
 

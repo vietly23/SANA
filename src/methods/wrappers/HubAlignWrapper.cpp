@@ -1,7 +1,9 @@
-#include "HubAlignWrapper.hpp"
+#include "methods/wrappers/HubAlignWrapper.hpp"
+
 #include <algorithm>
-#include "../../measures/localMeasures/Sequence.hpp"
-#include "../../utils/FileIO.hpp"
+
+#include "measures/localMeasures/Sequence.hpp"
+#include "utils/FileIO.hpp"
 
 using namespace std;
 

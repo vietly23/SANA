@@ -1,6 +1,6 @@
 #ifndef GRAPHLETCOSINE_HPP
 #define GRAPHLETCOSINE_HPP
-#include "LocalMeasure.hpp"
+#include "measures/localMeasures/LocalMeasure.hpp"
 
 class GraphletCosine: public LocalMeasure {
 public:

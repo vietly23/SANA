@@ -1,7 +1,7 @@
 #ifndef PINALOGWRAPPER_HPP_
 #define PINALOGWRAPPER_HPP_
 
-#include "WrappedMethod.hpp"
+#include "methods/wrappers/WrappedMethod.hpp"
 using namespace std;
 
 

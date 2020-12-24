@@ -1,7 +1,7 @@
 #ifndef NETALWRAPPER_HPP
 #define NETALWRAPPER_HPP
 
-#include "WrappedMethod.hpp"
+#include "methods/wrappers/WrappedMethod.hpp"
 using namespace std;
 
 class NETALWrapper: public WrappedMethod {

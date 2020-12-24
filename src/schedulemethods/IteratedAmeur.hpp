@@ -3,7 +3,7 @@
 
 #include <vector>
 
-#include "Ameur.hpp"
+#include "schedulemethods/Ameur.hpp"
 
 using namespace std;
 

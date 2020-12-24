@@ -1,9 +1,11 @@
-#include "Importance.hpp"
-#include <vector>
-#include <iostream>
-#include <cmath>
+#include "measures/localMeasures/Importance.hpp"
+
 #include <algorithm>
-#include "../../utils/FileIO.hpp"
+#include <cmath>
+#include <iostream>
+#include <vector>
+
+#include "utils/FileIO.hpp"
 
 using namespace std;
 

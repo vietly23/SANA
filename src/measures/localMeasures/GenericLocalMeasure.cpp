@@ -2,6 +2,8 @@
 
 #include <vector>
 
+using namespace std;
+
 GenericLocalMeasure::GenericLocalMeasure(const Graph* G1, const Graph* G2,
 	string name, const vector<vector<float>>& simMatrix) : LocalMeasure(G1, G2, name) {
     uint n1 = G1->getNumNodes();

@@ -5,6 +5,8 @@
 
 #include "measures/EdgeExposure.hpp"
 
+using namespace std;
+
 uint NUM_GRAPHS;
 double MultiS3::Normalization_factor = 2;
 uint MultiS3::denom = 1;

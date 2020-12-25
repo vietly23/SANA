@@ -7,7 +7,7 @@
 
 class NormalDistribution {
 public:
-    NormalDistribution(const vector<double>& samples);
+    NormalDistribution(const std::vector<double>& samples);
     ~NormalDistribution() =default;
 
     double getMean() const;

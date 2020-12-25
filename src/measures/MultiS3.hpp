@@ -16,7 +16,7 @@ public:
     MultiS3(const  Graph* G1, const Graph* G2, int _numerator_type, int _denominator_type);
     virtual ~MultiS3();
     double eval(const Alignment& A);
-    static vector<uint> shadowDegree; // sum of neighboring edge weights including G1
+    static std::vector<uint> shadowDegree; // sum of neighboring edge weights including G1
 
     //denom is the number of ladders under G1
     void setDenom(const Alignment& A);

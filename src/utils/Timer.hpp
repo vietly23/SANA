@@ -1,7 +1,6 @@
 #ifndef TIMER_HPP
 #define TIMER_HPP
 #include <string>
-using namespace std;
 
 class Timer {
 public:
@@ -9,7 +8,7 @@ public:
 
     void start();
     double elapsed() const;
-    string elapsedString() const;
+    std::string elapsedString() const;
 
 private:
     long long startTime;

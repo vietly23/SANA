@@ -1,4 +1,5 @@
 #include "methods/SANA.hpp"
+
 #include <string>
 #include <vector>
 #include <utility>
@@ -23,6 +24,7 @@
 #include <stdio.h>
 #include <unistd.h>
 
+#include "Report.hpp"
 #include "measures/localMeasures/Sequence.hpp"
 #include "measures/EdgeCorrectness.hpp"
 #include "measures/EdgeDifference.hpp"
@@ -37,7 +39,6 @@
 #include "measures/SymmetricSubstructureScore.hpp"
 #include "measures/WeightedEdgeConservation.hpp"
 #include "utils/utils.hpp"
-#include "Report.hpp"
 
 using namespace std;
 

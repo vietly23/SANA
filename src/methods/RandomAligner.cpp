@@ -10,6 +10,7 @@ Alignment RandomAligner::run() {
 }
 
 void RandomAligner::describeParameters(ostream& stream) const {}
+
 string RandomAligner::fileNameSuffix(const Alignment& A) const {
     return "";
 }

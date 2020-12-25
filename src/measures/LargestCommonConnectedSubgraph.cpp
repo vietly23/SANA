@@ -3,6 +3,8 @@
 #include <vector>
 #include <cmath>
 
+using namespace std;
+
 LargestCommonConnectedSubgraph::LargestCommonConnectedSubgraph(const Graph* G1, const Graph* G2) : Measure(G1, G2, "lccs") {
 }
 

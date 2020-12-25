@@ -4,19 +4,17 @@
 #include <string>
 #include "Graph.hpp"
 #include "Alignment.hpp"
+#include "measures/CoreScore.hpp"
 #include "measures/MeasureCombination.hpp"
 #include "methods/Method.hpp"
-#include "measures/CoreScore.hpp"
-
-using namespace std;
 
 class Report {
 public:
 
 static void saveReport(const Graph& G1, const Graph& G2, const Alignment& A,
-    const MeasureCombination& M, const Method* method, const string& reportFileName, bool longVersion);
+    const MeasureCombination& M, const Method* method, const std::string& reportFileName, bool longVersion);
 static void saveLocalMeasures(const Graph& G1, const Graph& G2, const Alignment& A,
-    const MeasureCombination& M, const Method* method, const string& localMeasureFile);
+    const MeasureCombination& M, const Method* method, const std::string& localMeasureFile);
 
 /*Some pair of nodes dubbed as "core alignment" appear to have greater affinity
   for aligning with each other as opposed to other nodes. We've tried to
@@ -26,18 +24,18 @@ static void saveLocalMeasures(const Graph& G1, const Graph& G2, const Alignment&
   frequency) extension. For more detail:
   https://github.com/waynebhayes/SANA/pull/132#issuecomment-646183330 */
 static void saveCoreScore(const Graph& G1, const Graph& G2, const Alignment& A, const Method*,
-        CoreScoreData& coreScoreData, const string& outputFileName);
+        CoreScoreData& coreScoreData, const std::string& outputFileName);
 
 private:
 
 //print the alignment in edge list format, using node names, and sorted from least frequent to most frequent color
-static void saveAlignmentAsEdgeList(const Alignment& A, const Graph& G1, const Graph& G2, const string& fileName);
+static void saveAlignmentAsEdgeList(const Alignment& A, const Graph& G1, const Graph& G2, const std::string& fileName);
 
 //this function does so many things I can't give it a more relevant name -Nil
-static string formattedFileName(const string& outFileName, const string& extension, 
-    const string& G1Name, const string& G2Name, const Method* method, Alignment const & A);
+static std::string formattedFileName(const std::string& outFileName, const std::string& extension,
+    const std::string& G1Name, const std::string& G2Name, const Method* method, Alignment const & A);
 
-static void printGraphStats(const Graph& G, uint numCCsToPrint, ofstream& ofs);
+static void printGraphStats(const Graph& G, uint numCCsToPrint, std::ofstream& ofs);
 };
 
 #endif /* REPORT_HPP_ */

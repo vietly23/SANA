@@ -273,17 +273,19 @@ void SupportedArguments::validateAndAddArguments(){
 }
 
 void SupportedArguments::printAllArgumentDescriptions(const unordered_set<string>& helpArgs) {
-    ifstream outputIfs("./src/arguments/helpOutput");
-    ifstream tutorialIfs("./src/arguments/helpTutorial");
-    string line;
-    if (helpArgs.size() == 0) { // Checks if no extra flag is given, If none prints general helpOutput file
-        while (FileIO::safeGetLine(outputIfs, line)) {
-            if (line != "OPTIONS, ARGS, AND DESCRIPTIONS GO HERE.") cout << endl << line;
-        }
-    }
-    bool hasTutorial = false; // To check if tutorial file need to be printed
+    // ifstream outputIfs("./src/arguments/helpOutput");
+    // ifstream tutorialIfs("./src/arguments/helpTutorial");
+    // string line;
+    // if (helpArgs.size() == 0) { // Checks if no extra flag is given, If none prints general helpOutput file
+    //     while (FileIO::safeGetLine(outputIfs, line)) {
+    //         if (line != "OPTIONS, ARGS, AND DESCRIPTIONS GO HERE.") cout << endl << line;
+    //     }
+    // }
+    // bool hasTutorial = false; // To check if tutorial file need to be printed
     bool printArgs = false; // Checks if the help arguments ask for the banner being iterated over
+    cout << "Printing args... " << endl;
     for (const auto& argLine : supportedArguments) {
+        /*
         if (argLine == supportedArguments[0]) cout << printItem(argLine) << endl;
         if (argLine[2] == "banner") {
             printArgs = false;
@@ -291,19 +293,23 @@ void SupportedArguments::printAllArgumentDescriptions(const unordered_set<string
                 if (!ele.compare(argLine[1]) || !ele.compare("all")) {
                     printArgs = true;
                     break;
-                } else if (!ele.compare("tutorial")) {
-                    hasTutorial = true;
                 }
+                // else if (!ele.compare("tutorial")) {
+                //     hasTutorial = true;
+                // }
             }
         }
-        if (printArgs == true) cout << printItem(argLine) << endl;
+         */
+        if (printArgs) cout << printItem(argLine) << endl;
     }
 
+    /*
     if (hasTutorial == true) { // if tutorial is asked for print tutorial
         while (FileIO::safeGetLine(tutorialIfs, line)) {
             if (line != "OPTIONS, ARGS, AND DESCRIPTIONS GO HERE.") cout << endl << line;
         }
     }
+     */
 }
 
 string SupportedArguments::printItem(const array<string, 6>& item) {

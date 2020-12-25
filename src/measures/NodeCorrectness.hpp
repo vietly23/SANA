@@ -5,16 +5,16 @@
 
 class NodeCorrectness: public Measure {
 public:
-    NodeCorrectness(const vector<uint>& A);
+    NodeCorrectness(const std::vector<uint>& A);
     virtual ~NodeCorrectness();
     double eval(const Alignment& A);
-    unordered_map<string, double> evalByColor(const Alignment& A, const Graph& G1, const Graph& G2) const;
-    virtual vector<uint> getMappingforNC() const;
-    static vector<uint> createTrueAlignment(const Graph& G1, const Graph& G2, const vector<string>& E);        
+    std::unordered_map<std::string, double> evalByColor(const Alignment& A, const Graph& G1, const Graph& G2) const;
+    virtual std::vector<uint> getMappingforNC() const;
+    static std::vector<uint> createTrueAlignment(const Graph& G1, const Graph& G2, const std::vector<std::string>& E);
     static bool fulfillsPrereqs(const Graph* G1, const Graph* G2);
     
 private:
-    vector<uint> trueAWithValidCountAppended;
+    std::vector<uint> trueAWithValidCountAppended;
 
 };
 

@@ -1,5 +1,6 @@
 #ifndef METHOD_HPP
 #define METHOD_HPP
+
 #include <string>
 #include <iostream>
 
@@ -10,14 +11,14 @@
 
 class Method {
 public:
-    Method(const Graph* G1, const Graph* G2, string name);
+    Method(const Graph* G1, const Graph* G2, std::string name);
     virtual ~Method();
     Alignment runAndPrintTime();
     virtual Alignment run() =0;
-    virtual void describeParameters(ostream& stream) const =0;
-    virtual string fileNameSuffix(const Alignment& A) const =0;
+    virtual void describeParameters(std::ostream& stream) const =0;
+    virtual std::string fileNameSuffix(const Alignment& A) const =0;
 
-    string getName() const;
+    std::string getName() const;
     double getExecTime() const;
 
 protected:
@@ -25,7 +26,7 @@ protected:
     const Graph* G2;
 
 private:
-    string name;
+    std::string name;
     double execTime;
 };
 

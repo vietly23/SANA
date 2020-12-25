@@ -1,24 +1,23 @@
 #ifndef SANA_HPP
 #define SANA_HPP
-#include <map>
-#include <tuple>
-#include <mutex>
+
 #include <chrono>
 #include <ctime>
-#include <random>
 #include <list>
-#include <utility>
+#include <map>
+#include <mutex>
+#include <random>
+#include <tuple>
 #include <unordered_set>
+#include <utility>
+
 #include "measures/CoreScore.hpp"
 #include "measures/ExternalWeightedEdgeConservation.hpp"
-#include "measures/localMeasures/LocalMeasure.hpp"
 #include "measures/Measure.hpp"
 #include "measures/MeasureCombination.hpp"
+#include "measures/localMeasures/LocalMeasure.hpp"
 #include "methods/Method.hpp"
 #include "utils/randomSeed.hpp"
-
-using namespace std;
-
 
 class SANA: public Method {
 

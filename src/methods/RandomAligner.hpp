@@ -1,9 +1,9 @@
 #ifndef RANDOMALIGNER_HPP
 #define RANDOMALIGNER_HPP
 
+#include <iostream>
 #include <string>
 #include <vector>
-#include <iostream>
 #include "methods/Method.hpp"
 
 using namespace std;

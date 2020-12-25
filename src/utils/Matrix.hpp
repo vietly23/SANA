@@ -1,18 +1,18 @@
 #ifndef MATRIX_HPP_
 #define MATRIX_HPP_
+
 #include <vector>
 
 #include "utils/utils.hpp"
 #include "utils/SparseMatrix.hpp"
 
-using namespace std;
 
 #ifdef SPARSE
     #define INNER_CONTAINER unordered_map<uint, T>
     #define MATRIX_DATA_STRUCTURE SparseMatrix<T>
 #else
-    #define INNER_CONTAINER vector<T>
-    #define MATRIX_DATA_STRUCTURE vector<vector<T>>
+    #define INNER_CONTAINER std::vector<T>
+    #define MATRIX_DATA_STRUCTURE std::vector<std::vector<T>>
 #endif
 
 template <typename T>
@@ -43,7 +43,7 @@ Matrix<T>::Matrix(uint row, uint col) {
     data = MATRIX_DATA_STRUCTURE(row);
 #else
     data = MATRIX_DATA_STRUCTURE(row,
-           vector<T>(col, T()));
+           std::vector<T>(col, T()));
 #endif
 }
 
@@ -71,7 +71,7 @@ Matrix<T>::Matrix(uint numberOfNodes) {
     data = MATRIX_DATA_STRUCTURE(numberOfNodes);
 #else
     data = MATRIX_DATA_STRUCTURE(numberOfNodes,
-           vector<T>(numberOfNodes, T()));
+           std::vector<T>(numberOfNodes, T()));
 #endif
 }
 

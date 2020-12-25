@@ -1,6 +1,8 @@
 #include <vector>
 #include "measures/JaccardSimilarityScore.hpp"
 
+using namespace std;
+
 JaccardSimilarityScore::JaccardSimilarityScore(const Graph* G1, const Graph* G2): Measure(G1, G2, "js") {}
 
 JaccardSimilarityScore::~JaccardSimilarityScore() {}

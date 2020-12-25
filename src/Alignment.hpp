@@ -12,8 +12,6 @@
 #include "Graph.hpp"
 #include "utils/utils.hpp"
 
-using namespace std;
-
 /* Please make it a priority not to modify this class. This is a very general/abstract/core class
    that should not know anything about any of the measures/methods/modes that use it.
    Do not add anything specific to, or used only by, a particular measure/method/mode.
@@ -23,20 +21,20 @@ public:
     Alignment();
     Alignment(const Alignment& alig);
     Alignment &operator=(Alignment);
-    Alignment(const vector<uint>& mapping);
-    Alignment(const Graph& G1, const Graph& G2, const vector<array<string, 2>>& edgeList);
+    Alignment(const std::vector<uint>& mapping);
+    Alignment(const Graph& G1, const Graph& G2, const std::vector<std::array<std::string, 2>>& edgeList);
 
-    static Alignment loadEdgeList(const Graph& G1, const Graph& G2, const string& fileName);
+    static Alignment loadEdgeList(const Graph& G1, const Graph& G2, const std::string& fileName);
 
     //list of pairs of aligned node names, but first node in each pair may be of G2
-    static Alignment loadEdgeListUnordered(const Graph& G1, const Graph& G2, const string& fileName);
-    static Alignment loadPartialEdgeList(const Graph& G1, const Graph& G2, const string& fileName, bool byName);
-    static Alignment loadMapping(const string& fileName);
+    static Alignment loadEdgeListUnordered(const Graph& G1, const Graph& G2, const std::string& fileName);
+    static Alignment loadPartialEdgeList(const Graph& G1, const Graph& G2, const std::string& fileName, bool byName);
+    static Alignment loadMapping(const std::string& fileName);
     static Alignment randomColorRestrictedAlignment(const Graph& G1, const Graph& G2);
 
     // Writing
     // TODO: Figure if needed - VIET
-    Alignment writeEdgeList(const Graph& G1, const Graph& G2, ostream& edgeListStream) const;
+    Alignment writeEdgeList(const Graph& G1, const Graph& G2, std::ostream& edgeListStream) const;
     
     //returns a random alignment from a graph with n1 nodes to a graph with nodes n2 >= n1 nodes
     static Alignment random(uint n1, uint n2);
@@ -53,8 +51,8 @@ public:
     //shuffled node order
     static Alignment correctMapping(const Graph& G1, const Graph& G2);
 
-    vector<uint> asVector() const;
-    const vector<uint>* getVector() const; //preferred option if just reading
+    std::vector<uint> asVector() const;
+    const std::vector<uint>* getVector() const; //preferred option if just reading
 
     uint& operator[](uint node);
     const uint& operator[](const uint node) const;
@@ -68,7 +66,7 @@ public:
     void printDefinitionErrors(const Graph& G1, const Graph& G2);
 
 private:
-    vector<uint> A;
+    std::vector<uint> A;
 };
 
 #endif /* ALIGNMENT_HPP */

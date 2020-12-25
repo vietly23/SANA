@@ -1,5 +1,8 @@
 #ifndef GRAPHLETCOSINE_HPP
 #define GRAPHLETCOSINE_HPP
+
+#include <vector>
+
 #include "measures/localMeasures/LocalMeasure.hpp"
 
 class GraphletCosine: public LocalMeasure {
@@ -10,11 +13,11 @@ public:
 private:
 	uint maxGraphletSize;
     void initSimMatrix();
-    vector<uint> reduce(vector<uint> &v);
+    std::vector<uint> reduce(std::vector<uint> &v);
     const uint NUM_ORBITS = 73;
-    double cosineSimilarity(vector<uint> &v1, vector<uint> &v2);
-    double dot(vector<uint> &v1, vector<uint> &v2);
-    double magnitude(vector<uint> &vector);
+    double cosineSimilarity(std::vector<uint> &v1, std::vector<uint> &v2);
+    double dot(std::vector<uint> &v1, std::vector<uint> &v2);
+    double magnitude(std::vector<uint> &vector);
 };
 
 #endif

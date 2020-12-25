@@ -1,5 +1,8 @@
 #ifndef GRAPHLET_HPP_
 #define GRAPHLET_HPP_
+
+#include <vector>
+
 #include "measures/localMeasures/LocalMeasure.hpp"
 
 class Graphlet: public LocalMeasure {
@@ -13,8 +16,8 @@ private:
 	
     void initSimMatrix();
 
-    vector<double> getNumbersOfAffectedOrbits() const;
-    vector<double> getOrbitWeights() const;
+    std::vector<double> getNumbersOfAffectedOrbits() const;
+    std::vector<double> getOrbitWeights() const;
     double getOrbitWeightSum() const;
 
 };

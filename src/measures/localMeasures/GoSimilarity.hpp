@@ -1,5 +1,6 @@
 #ifndef GOSIMILARITY_HPP
 #define GOSIMILARITY_HPP
+
 #include <unordered_map>
 
 #include "measures/localMeasures/LocalMeasure.hpp"
@@ -7,41 +8,41 @@
 class GoSimilarity: public LocalMeasure {
 public:
     GoSimilarity(const Graph* G1, const Graph* G2,
-        const vector<double>& countWeights,
+        const std::vector<double>& countWeights,
         double occurrencesFraction = 1);
     
     virtual ~GoSimilarity();
     //double eval(const Alignment& A);
 
-    static string getGoSimpleFileName(const Graph& G);
+    static std::string getGoSimpleFileName(const Graph& G);
     static void ensureGoFileSimpleFormatExists(const Graph& G);
 
-    static vector<vector<uint>> loadGOTerms(const Graph& G,
+    static std::vector<std::vector<uint>> loadGOTerms(const Graph& G,
         double occurrencesFraction = 1);
 
     //returns the number of times that each go term appears in G
-    static unordered_map<uint,uint> getGoCounts(const Graph& G);
+    static std::unordered_map<uint,uint> getGoCounts(const Graph& G);
 
     static bool fulfillsPrereqs(const Graph* G1, const Graph* G2);
 
-    static vector<uint> leastFrequentGoTerms(const Graph& G,
+    static std::vector<uint> leastFrequentGoTerms(const Graph& G,
         double occurrencesFraction);
 
 private:
-    static const string biogridGOFile;
+    static const std::string biogridGOFile;
     
-    vector<double> countWeights;
+    std::vector<double> countWeights;
     double occurrencesFraction;
 
     void initSimMatrix();
 
-    static void assertNoRepeatedEntries(const vector<vector<uint>>& goTerms);
-    static void simpleToInternalFormat(const Graph& G, string GOFileSimpleFormat, string GOFileInternalFormat);
+    static void assertNoRepeatedEntries(const std::vector<std::vector<uint>>& goTerms);
+    static void simpleToInternalFormat(const Graph& G, std::string GOFileSimpleFormat, std::string GOFileInternalFormat);
     static void ensureGOFileInternalFormatExists(const Graph& G);
 
     static uint numberAnnotatedProteins(const Graph& G);
 
-    static void generateGOFileSimpleFormat(string GOFile, string GOFileSimpleFormat);
+    static void generateGOFileSimpleFormat(std::string GOFile, std::string GOFileSimpleFormat);
     static void generateGene2GoSimpleFormat();
 
     static bool isBioGRIDNetwork(const Graph& G);

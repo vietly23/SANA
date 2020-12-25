@@ -6,8 +6,6 @@
 #include <unordered_map>
 #include <vector>
 
-using namespace std;
-
 template <typename T>
 class SparseMatrix {
 public:
@@ -19,7 +17,7 @@ public:
         return *this;
     }
 
-    unordered_map<uint, T> & operator [] (uint node1) {
+    std::unordered_map<uint, T> & operator [] (uint node1) {
         return v[node1];
     }
 
@@ -63,7 +61,7 @@ public:
     }
 
 private:
-    vector<unordered_map<uint, T>> v;
+    std::vector<std::unordered_map<uint, T>> v;
 };
 
 #endif

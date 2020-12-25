@@ -1,5 +1,9 @@
 #include "measures/CoreScore.hpp"
 
+#include <vector>
+
+using namespace std;
+
 CoreScoreData::CoreScoreData() {}
 
 CoreScoreData::CoreScoreData(uint n1, uint n2) {

@@ -1,5 +1,8 @@
 #ifndef IMPORTANCE_HPP
 #define IMPORTANCE_HPP
+
+#include <vector>
+
 #include "measures/localMeasures/LocalMeasure.hpp"
 
 class Importance: public LocalMeasure {
@@ -22,13 +25,13 @@ private:
 
     void initSimMatrix();
 
-    static vector<double> getImportances(const Graph& G);
+    static std::vector<double> getImportances(const Graph& G);
 
     //returns only the nodes with degree <= DEG
-    static vector<uint> getNodesSortedByDegree(const Graph& G);
+    static std::vector<uint> getNodesSortedByDegree(const Graph& G);
 
-    static void removeFromAdjList(vector<uint>& list, uint u);
-    static void normalizeImportances(vector<double>& v);
+    static void removeFromAdjList(std::vector<uint>& list, uint u);
+    static void normalizeImportances(std::vector<double>& v);
 
     static bool hasNodesWithEnoughDegree(const Graph& G);
 };

@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 
-#include "schedulemethods/scheduleMethod.hpp"
+#include "schedulemethods/ScheduleMethod.hpp"
 
 using namespace std;
 

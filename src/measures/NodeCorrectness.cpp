@@ -42,7 +42,7 @@ unordered_map<string, double> NodeCorrectness::evalByColor(const Alignment& A, c
     }
 
     // Unused variable? tripping compiler -Werror
-    // uint trueAValidCount = trueAWithValidCountAppended.at(trueAWithValidCountAppended.size()-1);
+    uint trueAValidCount = trueAWithValidCountAppended.at(trueAWithValidCountAppended.size()-1);
     assert(totalCountAllColors == trueAValidCount); //sanity check
     return res;
 }

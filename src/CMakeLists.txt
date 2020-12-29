@@ -96,8 +96,10 @@ add_library(sana_lib
         complementaryProteins.cpp
         Report.cpp
         )
-add_executable(sana_exe main.cpp)
+target_link_libraries(sana_lib CONAN_PKG::spdlog)
 target_include_directories(sana_lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 target_compile_definitions(sana_lib PUBLIC
         SANA_VERSION="Version ${PROJECT_VERSION} - Compiled by ${CMAKE_CXX_COMPILER_ID}_${CMAKE_CXX_COMPILER_VERSION}")
+
+add_executable(sana_exe main.cpp)
 target_link_libraries(sana_exe sana_lib -pthread)

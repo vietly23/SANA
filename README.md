@@ -32,3 +32,26 @@ In terms of run-time.... there's no a-priori way to determine, in advance, how m
 1- Move the incremental evaluation logic to each Measure, and use runtime polymorphism to run the appropriate logic for the "active" measures included in MeasureCombination. There is a very nice way to do this incrementally and safely. Start with one measure, say, EC, and add the new logic without removing the existing one. Then, assert at the end of each iteration that the old and new logics coincide. If they do (e.g, across the test suite), the old logic can be safely removed. This can be done measure by measure until SANA is cleaned up. Our other email chain on the subject can serve as basis for the design philosophy to follow to do this.  
 
 2- Insert virtual dummy nodes to handle yin-yang problem in pairwise alignment. Of course, it is always possible to add dummy nodes manually or use multi pairwise with just 2 graphs. The advantage of doing it natively would be efficiency, as it is possibly to not waste time swapping between dummy nodes and still sample neighbor solutions uniformly. However, I don't like that this feature introduces a new concept to the SANA class (virtual dummy nodes) and makes it more complex. For this reason, I wanted to implement (1) before doing this.
+
+
+## Contributing
+
+Creating temporary section for documenting various avenues of documentation
+
+### Documentation
+
+Documentation generated via DoxyGen. This requires several dependencies to be installed:
+
+1. dot - Install via GraphViz library
+2. Doxygen - You can install via downloaded distribution, build from source, or if it is available in the 
+repository, you can download via `sudo apt install doxygen` or some variant (think `yum` for Amazon Linux platforms)
+   
+Ideally, the `gh-pages` branch should be updated via automatic webhook, but I haven't figured that out **yet**.
+For now, if there is some serious change, please do the following:
+
+1. Build the GenerateDocs target
+2. Switch to gh-pages branch.
+3. Copy all the files in `cmake-build-debug/documentation/doxygen` over to `docs/` in the `gh-pages` branch.
+
+**NOTE**: This is taken from my personal experience building with the CLion IDE. My suspicion is that building 
+via CLI or specifying a build directory will require you to modify the aforementioned instructions slightly.

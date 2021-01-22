@@ -5,7 +5,6 @@
 
 using namespace std;
 
-//this should be refactored without global variables -Nil
 unsigned int currentSeed;
 static bool doneInit = false;
 
@@ -15,9 +14,7 @@ void setSeed(unsigned int seed) {
 }
 
 void setRandomSeed() {
-	currentSeed = gethostid() + time(0) + getpid();
-	// random_device rd;
-	// currentSeed += rd(); //rd() fails on Jenkins.
+	currentSeed = gethostid() + time(nullptr) + getpid();
 	doneInit = true;
 }
 

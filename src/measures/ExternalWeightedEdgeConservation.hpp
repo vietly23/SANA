@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 
-#include "Graph.hpp"
+#include "graph/Graph.hpp"
 #include "measures/Measure.hpp"
 #include "measures/localMeasures/LocalMeasure.hpp"
 

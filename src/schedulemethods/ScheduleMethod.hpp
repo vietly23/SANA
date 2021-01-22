@@ -15,10 +15,11 @@ class ScheduleMethod {
 
 public:
 
+    // TODO: Explain concept of resources? How does this relate to ScheduleMethod? Is this temperature schedule?
     struct Resources {
         int numSamples; //# getPBad calls
         double runtime;
-        Resources() =default;
+        Resources() = default;
         Resources(int n, double t): numSamples(n), runtime(t) {}
         
         //trick to avoid mixing the order of argument

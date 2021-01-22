@@ -1,6 +1,7 @@
 #include "modes/ClusterMode.hpp"
 
 #include <iostream>
+#include <stdexcept>
 
 #include "arguments/modeSelector.hpp"
 #include "utils/utils.hpp"
@@ -26,6 +27,7 @@ uint ClusterMode::getOArgValueIndex(const vector<string>& argv) {
 }
 
 void ClusterMode::run(ArgumentParser& args) {
+    throw runtime_error("Not implemented yet in the new version");
   if (args.strings["-outfolder"] == "") {
       cout << "Specify an output folder to use" << endl;
       exit(-1);

@@ -5,7 +5,7 @@
 #include <map>
 
 #include "Alignment.hpp"
-#include "arguments/GraphLoader.hpp"
+#include "graph/GraphLoader.hpp"
 #include "measures/EdgeCorrectness.hpp"
 #include "measures/InvalidMeasure.hpp"
 #include "measures/JaccardSimilarityScore.hpp"

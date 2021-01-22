@@ -1,4 +1,17 @@
+# SANA LIBRARY COMPILATION
 add_library(sana_lib
+        Alignment.cpp
+        graph/Graph.cpp
+        complementaryProteins.cpp
+        Report.cpp
+        arguments/ArgumentParser.cpp
+        graph/GraphLoader.cpp
+        arguments/MethodSelector.cpp
+        arguments/SupportedArguments.cpp
+        arguments/measureSelector.cpp
+        arguments/modeSelector.cpp
+        configuration/Configuration.cpp
+        configuration/ConfigurationOption.cpp
         methods/Method.cpp
         methods/SANA.cpp
         methods/NoneMethod.cpp
@@ -56,6 +69,24 @@ add_library(sana_lib
         measures/NodeCorrectness.cpp
         measures/MultiEdgeCorrectness.cpp
         measures/Measure.cpp
+        modes/ClusterMode.cpp
+        modes/ParameterEstimation.cpp
+        modes/CreateShadow.cpp
+        modes/SimilarityMode.cpp
+        modes/AnalysisMode.cpp
+        modes/NormalMode.cpp
+        modes/AlphaEstimation.cpp
+        modes/Experiment.cpp
+        schedulemethods/ScheduleMethod.cpp
+        schedulemethods/StatisticalTest.cpp
+        schedulemethods/IteratedAmeur.cpp
+        schedulemethods/scheduleUtils.cpp
+        schedulemethods/LinearRegressionVintage.cpp
+        schedulemethods/PBadBinarySearch.cpp
+        schedulemethods/Ameur.cpp
+        schedulemethods/LinearRegressionModern.cpp
+        schedulemethods/IteratedLinearRegression.cpp
+        temperature/TemperatureSchedule.cpp
         utils/LinearRegression.cpp
         utils/FileIO.cpp
         utils/ParetoFront.cpp
@@ -67,39 +98,14 @@ add_library(sana_lib
         utils/randomSeed.cpp
         utils/NormalDistribution.cpp
         utils/computeGraphlets.cpp
-        modes/ClusterMode.cpp
-        modes/ParameterEstimation.cpp
-        modes/CreateShadow.cpp
-        modes/DebugMode.cpp
-        modes/SimilarityMode.cpp
-        modes/AnalysisMode.cpp
-        modes/NormalMode.cpp
-        modes/AlphaEstimation.cpp
-        modes/Experiment.cpp
-        Alignment.cpp
-        schedulemethods/ScheduleMethod.cpp
-        schedulemethods/StatisticalTest.cpp
-        schedulemethods/IteratedAmeur.cpp
-        schedulemethods/scheduleUtils.cpp
-        schedulemethods/LinearRegressionVintage.cpp
-        schedulemethods/PBadBinarySearch.cpp
-        schedulemethods/Ameur.cpp
-        schedulemethods/LinearRegressionModern.cpp
-        schedulemethods/IteratedLinearRegression.cpp
-        arguments/measureSelector.cpp
-        arguments/MethodSelector.cpp
-        arguments/modeSelector.cpp
-        arguments/SupportedArguments.cpp
-        arguments/ArgumentParser.cpp
-        arguments/GraphLoader.cpp
-        Graph.cpp
-        complementaryProteins.cpp
-        Report.cpp
-        )
-target_link_libraries(sana_lib CONAN_PKG::spdlog)
+        utils/Utility.cpp
+        modes/Mode.cpp modes/SanaMode.cpp modes/SanaMode.hpp measures/AlignmentEvaluator.cpp measures/AlignmentEvaluator.hpp)
+set(SANA_VERSION "Version ${PROJECT_VERSION} - Compiled by ${CMAKE_CXX_COMPILER_ID}_${CMAKE_CXX_COMPILER_VERSION}")
+target_link_libraries(sana_lib CONAN_PKG::spdlog CONAN_PKG::cxxopts)
 target_include_directories(sana_lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
-target_compile_definitions(sana_lib PUBLIC
-        SANA_VERSION="Version ${PROJECT_VERSION} - Compiled by ${CMAKE_CXX_COMPILER_ID}_${CMAKE_CXX_COMPILER_VERSION}")
+target_compile_definitions(sana_lib PUBLIC SANA_VERSION="${SANA_VERSION}")
 
-add_executable(sana_exe main.cpp)
-target_link_libraries(sana_exe sana_lib -pthread)
+# SANA EXECUTABLE COMPILATION
+add_executable(sana_exe main.cpp temperature/TemperatureSchedule.cpp temperature/TemperatureSchedule.hpp)
+target_link_libraries(sana_exe PUBLIC sana_lib -pthread CONAN_PKG::spdlog CONAN_PKG::cxxopts CONAN_PKG::di)
+target_compile_definitions(sana_exe PUBLIC SANA_VERSION="${SANA_VERSION}")

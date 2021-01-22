@@ -4,10 +4,12 @@
 #include <utility>
 #include <iostream>
 
+#include "spdlog/spdlog.h"
+
 #include "Report.hpp"
 #include "arguments/measureSelector.hpp"
 #include "arguments/MethodSelector.hpp"
-#include "arguments/GraphLoader.hpp"
+#include "graph/GraphLoader.hpp"
 #include "utils/utils.hpp"
 #include "utils/FileIO.hpp"
 
@@ -48,3 +50,24 @@ void NormalMode::createFolders() {
     FileIO::createFolder("networks");
     FileIO::createFolder(AUTOGENEREATED_FILES_FOLDER);
 }
+
+void NormalMode::run() {
+    spdlog::info("Loading graph 1");
+    auto graph1 = graphLoader.loadGraph(config.getValue(sana::StringConfig("graph1.filename")).value());
+    spdlog::info("Loading graph 2");
+    auto graph2 = graphLoader.loadGraph(config.getValue(sana::StringConfig("graph2.filename")).value());
+
+    if (graph1->NodeNames.size() > graph2->NodeNames.size()) std::swap(graph1, graph2);
+    
+}
+
+NormalMode::NormalMode():sana::Mode(sana::Configuration{{}}) {
+}
+
+NormalMode::NormalMode(sana::Configuration configuration, GraphLoader g) : sana::Mode(configuration), graphLoader(g) {
+
+}
+
+NormalMode::~NormalMode() {
+}
+

@@ -2144,3 +2144,9 @@ void SANA::initTau(void) {
            2.46e-06, 2.02e-06, 1.85e-06, 1.72e-06, 1.10e-06, 9.13e-07, 8.65e-07, 8.21e-07, 7.26e-07, 6.25e-07,
            5.99e-07, 5.42e-07, 8.12e-08, 4.16e-08, 6.56e-09, 9.124e-10, 6.1245e-10, 3.356e-10, 8.124e-11, 4.587e-11};
 }
+
+sana::Alignment
+sana::RefactoredSANA::runAlignment(const shared_ptr<GraphData>& g1, const shared_ptr<GraphData> g2, double maxSeconds,
+        long long int maxIterations, const std::shared_ptr<MeasureCombination>& mc) {
+    return sana::Alignment();
+}

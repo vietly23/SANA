@@ -1,7 +1,7 @@
 #ifndef SIMILARITYMODE_HPP_
 #define SIMILARITYMODE_HPP_
 
-#include "Graph.hpp"
+#include "graph/Graph.hpp"
 #include "arguments/ArgumentParser.hpp"
 #include "measures/MeasureCombination.hpp"
 #include "methods/Method.hpp"

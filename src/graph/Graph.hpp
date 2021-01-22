@@ -31,9 +31,40 @@
     #define EDGE_T bool //unweighted graphs -- the normal/traditional setting
   #endif
 #endif
+namespace sana {
+    union EdgeType {
+        bool edgeExists;
+        unsigned char numberWeight;
+        float floatWeight;
+    };
+    struct Source {
+        uint value;
+        constexpr operator uint() {return value;};
+    };
+    struct Destination {
+        uint value;
+        constexpr operator uint() {return value;};
+    };
+    struct Edge {
+        Edge(Source s, Destination d);
+        Edge(const Edge& other);
+        uint source;
+        uint destination;
+        static bool compare(const Edge& a, const Edge& b);
+    };
+    struct GraphData {
+        GraphData(std::vector<std::string> nodeNames, std::vector<Edge> edgeList) : NodeNames(nodeNames), EdgeList(edgeList) {};
+        const std::vector<std::string> NodeNames;
+        const std::vector<Edge> EdgeList;
+    };
+}
 
 class Graph {
 public:
+    typedef std::vector<std::string> NodeNames;
+    typedef std::vector<EDGE_T> EdgeWeights;
+    typedef std::vector<std::array<std::string, 2>> NodeColors;
+    typedef std::vector<std::array<uint, 2>> EdgeList;
     /* All-purpose constructor
     - optionalFilePath can be left empty if not relevant
     - self-loops are allowed in the edge list

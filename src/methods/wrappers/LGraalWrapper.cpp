@@ -1,7 +1,7 @@
 #include "LGraalWrapper.hpp"
 
 #include "measures/localMeasures/Sequence.hpp"
-#include "arguments/GraphLoader.hpp"
+#include "graph/GraphLoader.hpp"
 #include "utils/FileIO.hpp"
 
 using namespace std;

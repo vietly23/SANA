@@ -2,7 +2,7 @@
 #define MEASURESELECTOR_H_
 
 #include "arguments/ArgumentParser.hpp"
-#include "Graph.hpp"
+#include "graph/Graph.hpp"
 #include "measures/MeasureCombination.hpp"
 
 namespace measureSelector {

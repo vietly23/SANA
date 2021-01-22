@@ -1,7 +1,7 @@
 #include "schedulemethods/LinearRegressionModern.hpp"
 
 #include <iostream>
-
+#include "spdlog/spdlog.h"
 #include "utils/LinearRegression.hpp"
 
 using namespace std;
@@ -35,24 +35,25 @@ void LinearRegressionModern::computeBoth(ScheduleMethod::Resources maxRes) {
     T.start();
     int startSamples = tempToPBad.size();
 
-    cout << "Populating PBad curve" << endl;
+    spdlog::debug("Populating PBad curve");
     populatePBadCurve();
 
     int remainingSamples = maxRes.numSamples-(tempToPBad.size()-startSamples);
     ScheduleMethod::Resources remRes(remainingSamples, maxRes.runtime - T.elapsed());
     ScheduleMethod::Resources halfRemRes(remRes.numSamples/2, remRes.runtime/2);
 
-    cout << "Increasing density near TInitial" << endl;
+    spdlog::debug("Increasing density near TInitial");
     pBadBinarySearch(targetInitialPBad, halfRemRes);
 
     remRes.numSamples = maxRes.numSamples-(tempToPBad.size()-startSamples);
     remRes.runtime = maxRes.runtime - T.elapsed();
-    cout << "Increasing density near TFinal" << endl;
+    spdlog::debug("Increasing density near TFinal");
     pBadBinarySearch(targetFinalPBad, remRes);  
 
     auto model = LinearRegression::bestFit(tempToPBad);
-    cout << "*** Linear Regression Model: " << endl;
-    model.print();
+    spdlog::debug("Linear Regression Model: {}", "TO BE DETERMINED");
+//    cout << "*** Linear Regression Model: " << endl;
+//    model.print();
 
     TInitial = tempWithBestLRFit(targetInitialPBad);
     TFinal = tempWithBestLRFit(targetFinalPBad);

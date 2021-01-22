@@ -5,7 +5,7 @@
 
 #include "Report.hpp"
 #include "arguments/measureSelector.hpp"
-#include "arguments/GraphLoader.hpp"
+#include "graph/GraphLoader.hpp"
 #include "utils/utils.hpp"
 
 Alignment loadAlignment(int format, const string& file, const Graph& G1, const Graph& G2) {

@@ -3,7 +3,7 @@
 #include <vector>
 #include <iostream>
 
-#include "Graph.hpp"
+#include "graph/Graph.hpp"
 #include "measures/Measure.hpp"
 #include "measures/localMeasures/LocalMeasure.hpp"
 #include "utils/utils.hpp"

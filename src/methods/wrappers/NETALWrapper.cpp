@@ -1,5 +1,5 @@
 #include "methods/wrappers/NETALWrapper.hpp"
-#include "arguments/GraphLoader.hpp"
+#include "graph/GraphLoader.hpp"
 #include "utils/FileIO.hpp"
 
 using namespace std;

@@ -1,5 +1,5 @@
 #include "Alignment.hpp"
-#include "Graph.hpp"
+#include "graph/Graph.hpp"
 #include "utils/utils.hpp"
 #include "utils/FileIO.hpp"
 using namespace std;
@@ -300,4 +300,50 @@ Alignment Alignment::writeEdgeList(const Graph &G1, const Graph &G2, ostream &ed
             edgeListStream << mapG2[A[i]] << "\t" << mapG1[i] << endl;
             edgeListStream << mapG1[i] << "\t" << mapG2[A[i]] << endl;
     }
+}
+
+sana::AlignmentUtility::AlignmentUtility(const sana::StreamUtility &streamUtility) : streamUtility(
+        streamUtility) {}
+
+sana::Alignment sana::AlignmentUtility::loadEdgeList(const shared_ptr<Graph>& graphA, const shared_ptr<Graph>& graphB,
+        istream &in) const {
+    std::vector<std::string> edges = streamUtility.splitIntoWords(in);
+    sana::Alignment alignment;
+    alignment.reserve(edges.size() / 2);
+
+    for (uint i = 0; i < edges.size(); i += 2) {
+        auto nodeG1 = edges[i];
+        auto nodeG2 = edges[i + 1];
+        alignment[graphA->getNameIndex(nodeG1)] = graphB->getNameIndex(nodeG2);
+    }
+    return alignment;
+}
+
+sana::Alignment sana::AlignmentUtility::loadMapping(istream &in) const {
+    std::string firstLine;
+    std::getline(in, firstLine); //ignore anything past first line
+    std::istringstream iss(firstLine);
+    sana::Alignment A(0);
+    int g2Ind;
+    while (iss >> g2Ind) A.push_back(g2Ind);
+    return A;
+}
+
+void sana::AlignmentUtility::writeEdgeList(const Graph &G1, const Graph &G2, const sana::Alignment &a,
+        ostream &out) const {
+    auto alignment = a;
+    for (uint i = 0; i < alignment.size(); i++) {
+        out << G1.getNodeName(i) << "\t" << G2.getNodeName(alignment.at(i)) << std::endl;
+    }
+}
+
+void sana::AlignmentUtility::writeMapping(const sana::Alignment &a,
+        ostream &out) const {
+    std::for_each(a.cbegin(), --a.cend(),
+            [&out](uint alignedNodeNum) {out << alignedNodeNum << " ";});
+    out << a.back() << std::endl;
+}
+
+sana::AlignmentUtility::AlignmentUtility() {
+
 }

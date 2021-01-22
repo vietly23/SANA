@@ -22,6 +22,7 @@ public:
     struct Sample {
         const double temp, pBad;
         Sample(double temp, double pBad);
+
         void print() const;
     };
     struct Model {

@@ -1,3 +1,5 @@
+#include "graph/GraphLoader.hpp"
+
 #include <string>
 #include <chrono>
 #include <iostream>
@@ -8,8 +10,10 @@
 #include <unistd.h>
 #include <thread>
 #include <future>
+
+#include "spdlog/spdlog.h"
+
 #include "arguments/ArgumentParser.hpp"
-#include "arguments/GraphLoader.hpp"
 #include "utils/Timer.hpp"
 #include "utils/FileIO.hpp"
 #include "Alignment.hpp"
@@ -637,5 +641,69 @@ Graph GraphLoader::pruneG1FromG2(const Graph& G1, const Graph& G2, const vector<
     return Graph(G2.getName(), G2.getFilePath(), newEdgeList, *(G2.getNodeNames()), 
                  newEdgeWeights, G2.colorsAsNodeColorNamePairs());
 #endif /* MULTI_PAIRWISE */
+}
+
+std::shared_ptr<sana::GraphData> GraphLoader::loadGraph(const std::string& localFilePath) {
+    FileIO::checkFileExists(localFilePath);
+    spdlog::debug("Opening file {}", localFilePath);
+    stdiobuf sbuf = FileIO::readFileAsStreamBuffer(localFilePath);
+    istream ifs(&sbuf);
+    return loadGraph(ifs);
+}
+
+std::shared_ptr<sana::GraphData> GraphLoader::loadGraph(istream &in) {
+    auto startTime = std::chrono::high_resolution_clock::now();
+    string line;
+    // ignore header
+    for (uint i = 0; i < 4; i++) FileIO::safeGetLine(in, line);
+    // read number of nodes
+    int n;
+    if (FileIO::safeGetLine(in, line)) {
+        n = stoi(line);
+        if (n <= 0) throw runtime_error("Failed to read non-zero node number: "+line);
+    } else throw runtime_error("Failed to read line with node number");
+    // Read nodes
+    std::vector<std::string> nodeNames;
+    nodeNames.reserve(n);
+    for (int i = 0; i < n; i++) {
+        if (FileIO::safeGetLine(in, line)) {
+            if (line.size() <= 4) throw runtime_error("Failed to read node name from line: "+line);
+            string node = line.substr(2,line.size() - 4); // strip |{ and }|
+            nodeNames.emplace_back(node);
+        } else throw runtime_error("Failed to read all nodes");
+    }
+
+    // Read number of edges
+    int m;
+    if (FileIO::safeGetLine(in, line)) {
+        m = stoi(line);
+        istringstream iss2(line);
+        if (m <= 0) throw runtime_error("Failed to read non-zero edge number: "+line);
+    } else throw runtime_error("Failed to read line with edge number");
+
+    // Read edges
+    std::vector<sana::Edge> edgeList;
+    edgeList.reserve(m);
+    for (int i = 0; i < m; ++i) {
+        if (FileIO::safeGetLine(in, line)) {
+            istringstream iss(line);
+            uint node1, node2;
+            if (iss >> node1 >> node2)
+                edgeList.emplace_back(sana::Source{node1 - 1}, sana::Destination{node2 - 1});
+            else throw runtime_error("Failed to read edge from line: "+line);
+        } else throw runtime_error("Failed to read all edges");
+    }
+    std::sort(edgeList.begin(), edgeList.end(), sana::Edge::compare);
+    if (FileIO::safeGetLine(in, line) and !line.empty())
+        spdlog::warn("Ignoring leftover lines at the end of input stream: {}.", line);
+    auto endTime = std::chrono::high_resolution_clock::now();
+    auto graphLoadDuration = std::chrono::duration_cast<std::chrono::milliseconds>(endTime - startTime).count();
+    spdlog::debug("Loading graph file took {}ms", graphLoadDuration);
+
+    // TODO: Make colors happen
+    // TODO: Add dummy nodes? Is this needed?
+    // TODO: Add graph powers?
+    // TODO: Add pruning? if needed?
+    return std::shared_ptr<sana::GraphData>(new sana::GraphData(nodeNames, edgeList));
 }
 

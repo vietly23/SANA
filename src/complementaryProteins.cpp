@@ -2,11 +2,11 @@
 #include <vector>
 #include <iostream>
 #include <sstream>
-#include "Graph.hpp"
+#include "graph/Graph.hpp"
 #include "utils/Timer.hpp"
 #include "utils/utils.hpp"
 #include "utils/FileIO.hpp"
-#include "arguments/GraphLoader.hpp"
+#include "graph/GraphLoader.hpp"
 #include "measures/localMeasures/Graphlet.hpp"
 #include "measures/localMeasures/NodeCount.hpp"
 #include "measures/localMeasures/EdgeCount.hpp"

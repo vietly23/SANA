@@ -3,7 +3,7 @@
 #include <cassert>
 #include <utility>
 
-#include "arguments/GraphLoader.hpp"
+#include "graph/GraphLoader.hpp"
 #include "arguments/measureSelector.hpp"
 #include "utils/utils.hpp"
 

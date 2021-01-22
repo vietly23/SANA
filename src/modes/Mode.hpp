@@ -4,7 +4,18 @@
 #include <string>
 
 #include "arguments/ArgumentParser.hpp"
+#include "configuration/Configuration.hpp"
 
+namespace sana {
+    // Refactored mode
+    struct Mode {
+        explicit Mode(Configuration configuration);
+        virtual void run() = 0;
+        virtual ~Mode() {};
+    protected:
+        Configuration config;
+    };
+}
 class Mode {
 public:
     virtual void run(ArgumentParser& args) = 0;

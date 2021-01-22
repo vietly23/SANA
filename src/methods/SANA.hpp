@@ -18,7 +18,12 @@
 #include "measures/localMeasures/LocalMeasure.hpp"
 #include "methods/Method.hpp"
 #include "utils/randomSeed.hpp"
-
+namespace sana {
+    struct RefactoredSANA {
+        sana::Alignment runAlignment(const std::shared_ptr<GraphData>& g1, std::shared_ptr<GraphData> g2,
+                double maxSeconds, long long maxIterations, const std::shared_ptr<MeasureCombination>& mc);
+    };
+}
 class SANA: public Method {
 
 public:

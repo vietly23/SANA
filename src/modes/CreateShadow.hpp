@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 
-#include "Graph.hpp"
+#include "graph/Graph.hpp"
 #include "modes/Mode.hpp"
 #include "arguments/ArgumentParser.hpp"
 #include "measures/MeasureCombination.hpp"

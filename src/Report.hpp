@@ -2,7 +2,7 @@
 #define REPORT_HPP_
 
 #include <string>
-#include "Graph.hpp"
+#include "graph/Graph.hpp"
 #include "Alignment.hpp"
 #include "measures/CoreScore.hpp"
 #include "measures/MeasureCombination.hpp"

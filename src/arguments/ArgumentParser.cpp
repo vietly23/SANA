@@ -1,123 +1,81 @@
-#include <iostream>
 #include "arguments/ArgumentParser.hpp"
+
+#include <iostream>
+#include <ctime>
+#include <unistd.h>
+
+#include "spdlog/spdlog.h"
+#include "cxxopts.hpp"
+
 #include "utils/utils.hpp"
-#include "utils/FileIO.hpp"
-#include "arguments/SupportedArguments.hpp"
+
 using namespace std;
 
-ArgumentParser::ArgumentParser(int argc, char* argv[]) {
-    if(argc == 1) {
-	cout << "Usage: ./sana [OPTION] [ARG(S)] [OPTION] [ARG(S)]..." << endl
-             << "Try './sana --help' or './sana -h' for more information." << endl;
-        exit(0);
-    }
-    for (int i = 0; i < argc; i++) originalArgv.push_back(argv[i]);
+cxxopts::Options constructCliOptions() {
+    cxxopts::Options options("SANA", "Executable to align networks using simulated annealing");
+    options.add_options()
+            ("graph1", "First network (smaller one). Requirement: An alignment file must exist inside the networks "
+                       "directory which matches the name of the specified species.",
+                    cxxopts::value<std::string>()->default_value("yeast.gw"))
+            ("graph2", "Second (larger in number of nodes) network. Requirement: An alignment file must exist "
+                       "inside the networks directory which matches the name of the specified species.",
+                    cxxopts::value<std::string>()->default_value("human.gw"))
+            ("skip-graph-validation", "Skip graph validation. Speed up load time by skipping checks for graph validity")
+            ("seed", "Set seeds for internal components for random number generation", cxxopts::value<int>())
+            ("mode", "Sets the algorithm that performs the alignment. NOTE: All methods except \"sana/hc/random/none\" "
+                     "call an external algorithm written by other authors. Possible aligners are: \"sana\", "
+                     "\"lgraal\", \"hubalign\", \"wave\", \"random\", \"netal\", \"migraal\", \"ghost\", \"piswap\", "
+                     "\"optnetalign\", \"spinal\", \"great\", \"natalie\", \"gedevo\", \"magna\", \"waveSim\", "
+                     "\"none\", and \"hc\".")
+            ("initial-alignment", "Starting Alignment. File containing the starting alignment by SANA.")
+            // Miscellaneous Options
+            ("version", "Print version of SANA and the compiler")
+            ("h,help", "Print usage")
+            ("logging", "Enable logging")
+            ("log-level", "Log level", cxxopts::value<std::string>());
+    return options;
+}
+void validateOptions(const cxxopts::ParseResult& result);
 
-    vector<string> vArg;
-    //add first the base values
-    vector<string> baseValues;
-    for (string line: defaultArguments) { //from defaultArguments.hpp
-        for (string s: nonEmptySplit(line, ' ')) {
-            vArg.push_back(s);
+sana::Configuration ArgumentParser::parseArguments(int argc, char* argv[]) {
+    cxxopts::Options options = constructCliOptions();
+    std::map<std::string, std::string> map;
+    try {
+        auto result = options.parse(argc, argv);
+        validateOptions(result);
+        if (result.count("help")) {
+            std::cout << options.help() << std::endl;
+            exit(0);
+        } else if (result.count("version")) {
+            std::cout << SANA_VERSION << std::endl;
+            exit(0);
         }
-    }
-    if (argc >= 2) {
-        //next add values from file
-        bool addValuesFromFile = FileIO::fileExists(argv[1]);
-        if (addValuesFromFile) {
-            vector<string> aux = FileIO::fileToWords(argv[1]);
-            vArg.insert(vArg.end(), aux.begin(), aux.end());
+        map["graph1.filename"] = result["graph1"].as<std::string>();
+        map["graph2.filename"] = result["graph2"].as<std::string>();
+        map["logging.enabled"] = result["logging"].count() ? "true" : "false";
+        if (result.count("log-level")) {
+            map["logging.level"] = result["log-level"].as<std::string>();
         }
-        //finally, add command line values
-        for (int i = addValuesFromFile ? 2 : 1; i < argc; i++) {
-            vArg.push_back(string(argv[i]));
+        if (result.count("seed")) {
+            // Convert back to string - force cast to verify parameter is an integer
+            map["utils.seed"] = to_string(result["seed"].as<int>());
         }
+    } catch (const cxxopts::OptionException& e) {
+        std::cerr << "Unable to parse options: " << e.what() << std::endl;
+        std::cout << options.help() << std::endl;
+        exit(-1);
     }
+    sana::Configuration config(map);
+    return config;
+}
 
-    //initializes the argument arrays declared in SupportedArguments.hpp
-    SupportedArguments::validateAndAddArguments();
-
-    //default values for missing arguments
-    for (string s: stringArgs)       strings[s]       = "";
-    for (string s: doubleArgs)       doubles[s]       = 0;
-    for (string s: boolArgs)         bools[s]         = false;
-    for (string s: doubleVectorArgs) doubleVectors[s] = vector<double> (0);
-    for (string s: stringVectorArgs) stringVectors[s] = vector<string> (0);
-
-    bool helpFound = false;
-    unordered_set<string> helpArgs;
-    //check to see if there is a help argument
-    for (string arg : vArg) {
-        if (arg == "-h" or arg == "--help") helpFound = true;
-        else if (helpFound) helpArgs.insert(arg);
-        else if (arg == "-V" or arg == "--version"){
-	    cout << SANA_VERSION << endl;
-	    exit(0);
-	}
-    }
-    if (helpFound) {
-        SupportedArguments::printAllArgumentDescriptions(helpArgs);
-        exit(0);
-    }
-
-    for (uint i = 0; i < vArg.size(); i++) {
-        string arg = vArg[i];
-        if(strings.count(arg)) {
-            strings[arg]=vArg[i+1];
-            i++;
-        } else if (doubles.count(arg)) {
-            doubles[arg]=stod(vArg[i+1]);
-            i++;
-        } else if (bools.count(arg)) {
-            bools[arg] = true;
-        } else if (doubleVectors.count(arg)) {
-            int k = stoi(vArg[i+1]);
-            doubleVectors[arg] = vector<double> (0);
-            for (int j = 0; j < k; j++) {
-                doubleVectors[arg].push_back(stod(vArg[i+2+j]));
-            }
-            i = i+k+1;
-        } else if (stringVectors.count(arg)){
-            int k = stoi(vArg[i+1]);
-            stringVectors[arg] = vector<string>(0);
-            for (int j = 0; j < k; j++)
-                stringVectors[arg].push_back(vArg[i+2+j]);
-            i = i+k+1;
-        } else {
-            // if (arg.size() > 1)  I *think* this was needed because of a bug in split that I just fixed. Not sure, so leaving it commented -Nil
-                throw runtime_error("Unknown argument: "+arg+". See the README for the correct syntax");
+void validateOptions(const cxxopts::ParseResult& result) {
+    if (result.count("log-level")) {
+        std::string level = result["log-level"].as<std::string>();
+        if (level != "info" and level != "debug") {
+            throw cxxopts::OptionException("Unrecognized argument: '" + level + "'. Acceptable values for "
+                                                                                "--log-level are 'info' or 'debug'");
         }
     }
 }
 
-void ArgumentParser::writeArguments() {
-    cout << "=== Parsed arguments ===" << endl;
-    for (auto kv : strings) {
-        if (kv.second != "") cout << kv.first << ": " << kv.second << '\t';
-    }
-    cout << endl;
-    for (auto kv : doubles) {
-        if (kv.second != 0) cout << kv.first << ": " << kv.second << '\t';
-    }
-    cout << endl;
-    for (auto kv : bools) {
-        if (kv.second) cout << kv.first << ": " << kv.second << '\t';
-    }
-    cout << endl;
-    for (auto kv : doubleVectors) {
-        if (kv.second.size() != 0) {
-            cout << kv.first << ": ";
-            for (uint i = 0; i < kv.second.size(); i++) cout << kv.second[i] << " ";
-            cout << endl;
-        }
-    }
-    cout << endl;
-    for (auto kv : stringVectors) {
-        if (kv.second.size() != 0) {
-            cout << kv.first << ": ";
-            for (uint i = 0; i < kv.second.size(); i++) cout << kv.second[i] << " ";
-            cout << endl;
-        }
-    }
-    cout << endl;
-}

@@ -7,7 +7,7 @@
 
 #include "modes/Mode.hpp"
 #include "measures/Measure.hpp"
-#include "Graph.hpp"
+#include "graph/Graph.hpp"
 
 using namespace std;
 

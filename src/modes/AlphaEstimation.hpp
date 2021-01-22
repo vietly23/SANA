@@ -4,7 +4,7 @@
 #include <string>
 #include <map>
 
-#include "Graph.hpp"
+#include "graph/Graph.hpp"
 #include "arguments/ArgumentParser.hpp"
 #include "modes/Mode.hpp"
 #include "measures/Measure.hpp"

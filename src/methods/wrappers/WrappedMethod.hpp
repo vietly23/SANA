@@ -6,7 +6,7 @@
 #include <string>
 #include <vector>
 
-#include "Graph.hpp"
+#include "graph/Graph.hpp"
 #include "methods/Method.hpp"
 
 using namespace std;

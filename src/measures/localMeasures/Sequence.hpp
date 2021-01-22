@@ -2,7 +2,7 @@
 #define SEQUENCE_HPP
 #include <unordered_map>
 
-#include "arguments/GraphLoader.hpp"
+#include "graph/GraphLoader.hpp"
 #include "measures/localMeasures/LocalMeasure.hpp"
 
 class Sequence: public LocalMeasure {

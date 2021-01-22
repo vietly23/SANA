@@ -5,7 +5,7 @@
 #include <sstream>
 
 #include "Alignment.hpp"
-#include "arguments/GraphLoader.hpp"
+#include "graph/GraphLoader.hpp"
 #include "measures/SymmetricSubstructureScore.hpp"
 #include "measures/JaccardSimilarityScore.hpp"
 #include "measures/EdgeCorrectness.hpp"

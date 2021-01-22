@@ -5,7 +5,7 @@
 #include <iostream>
 
 #include "Alignment.hpp"
-#include "Graph.hpp"
+#include "graph/Graph.hpp"
 #include "utils/Timer.hpp"
 #include "utils/utils.hpp"
 

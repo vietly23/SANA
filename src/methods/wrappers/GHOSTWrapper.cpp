@@ -1,6 +1,6 @@
 #include "methods/wrappers/GHOSTWrapper.hpp"
 
-#include "arguments/GraphLoader.hpp"
+#include "graph/GraphLoader.hpp"
 
 using namespace std;
 

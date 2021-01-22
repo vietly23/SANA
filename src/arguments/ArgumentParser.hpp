@@ -1,8 +1,11 @@
 #ifndef ARGUMENTPARSER_HPP
 #define ARGUMENTPARSER_HPP
-#include <string>
+
 #include <map>
+#include <string>
 #include <vector>
+#include "configuration/Configuration.hpp"
+
 using namespace std;
 
 class ArgumentParser {
@@ -12,8 +15,8 @@ public:
     optional file: the user can optionally put *as first argument* a file with values
     default values: from SupportedArguments::defaultArguments
     base values: numbers (0), strings (""), vectors (empty), bool (false) */
-    ArgumentParser(int argc, char* argv[]);
 
+    sana::Configuration parseArguments(int argc, char* argv[]);
     map<string, string> strings;
     map<string, double> doubles;
     map<string, bool> bools;
@@ -21,9 +24,6 @@ public:
     map<string, vector<string>> stringVectors;
 
     vector<string> originalArgv; //argv but in vector format
-
-    //skips arguments with base values
-    void writeArguments();
 };
 
 #endif /* ARGUMENTPARSER_HPP */

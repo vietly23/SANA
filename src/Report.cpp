@@ -2,7 +2,7 @@
 #include "utils/utils.hpp"
 #include "utils/randomSeed.hpp"
 #include "utils/FileIO.hpp"
-#include "arguments/GraphLoader.hpp"
+#include "graph/GraphLoader.hpp"
 #include "measures/EdgeCorrectness.hpp"
 #include "measures/InducedConservedStructure.hpp"
 #include "measures/SymmetricSubstructureScore.hpp"

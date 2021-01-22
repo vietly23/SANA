@@ -5,11 +5,13 @@
 #include <array>
 #include <cassert>
 #include <iostream>
+#include <memory>
 #include <sstream>
 #include <string>
 #include <vector>
+#include <utils/Utility.hpp>
 
-#include "Graph.hpp"
+#include "graph/Graph.hpp"
 #include "utils/utils.hpp"
 
 /* Please make it a priority not to modify this class. This is a very general/abstract/core class
@@ -68,5 +70,26 @@ public:
 private:
     std::vector<uint> A;
 };
+
+namespace sana {
+    typedef std::vector<uint> Alignment;
+    struct AlignmentUtility {
+        AlignmentUtility();
+        AlignmentUtility(const StreamUtility &streamUtility);
+        /**
+         * Load alignment using node names from graphA and graphB.
+         * @param graphA
+         * @param graphB
+         * @param in
+         * @return
+         */
+        Alignment loadEdgeList(const std::shared_ptr<Graph>& graphA, const std::shared_ptr<Graph>& graphB, std::istream& in) const;
+        Alignment loadMapping(std::istream& in) const;
+        void writeEdgeList(const Graph& G1, const Graph& G2, const Alignment& a, std::ostream& out) const;
+        void writeMapping(const Alignment& a, std::ostream& out) const;
+    private:
+        StreamUtility streamUtility;
+    };
+}
 
 #endif /* ALIGNMENT_HPP */

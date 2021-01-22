@@ -3,7 +3,7 @@
 
 #include <vector>
 
-#include "Graph.hpp"
+#include "graph/Graph.hpp"
 #include "measures/Measure.hpp"
 
 class LocalMeasure: public Measure {

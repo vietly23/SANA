@@ -5,11 +5,18 @@ project(SANA
         LANGUAGES CXX
 )
 
+set(CMAKE_CXX_STANDARD 17)
+
 enable_testing()
 
 include(cmake/conan.cmake)
-conan_cmake_run(REQUIRES spdlog/1.8.2 BASIC_SETUP CMAKE_TARGETS)
+conan_cmake_run(REQUIRES spdlog/1.8.2
+                cxxopts/2.2.1
+                gtest/1.10.0
+                di/1.2.0
+        BASIC_SETUP
+        CMAKE_TARGETS)
 add_subdirectory(src)
-# TODO: Add tests
-# add_subdirectory(test)
+
+add_subdirectory(test)
 

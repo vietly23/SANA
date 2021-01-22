@@ -8,9 +8,9 @@
 #include <array>
 #include <algorithm>
 
-#include "Graph.hpp"
+#include "graph/Graph.hpp"
 #include "Alignment.hpp"
-#include "arguments/GraphLoader.hpp"
+#include "graph/GraphLoader.hpp"
 #include "utils/utils.hpp"
 #include "utils/FileIO.hpp"
 #include "utils/Matrix.hpp"

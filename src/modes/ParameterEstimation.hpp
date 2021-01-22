@@ -3,7 +3,7 @@
 #include <vector>
 #include <string>
 
-#include "Graph.hpp"
+#include "graph/Graph.hpp"
 #include "modes/Mode.hpp"
 #include "measures/Measure.hpp"
 #include "methods/Method.hpp"

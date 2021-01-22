@@ -1,6 +1,6 @@
 #include "methods/wrappers/GEDEVOWrapper.hpp"
 
-#include "arguments/GraphLoader.hpp"
+#include "graph/GraphLoader.hpp"
 #include "utils/ComputeGraphletsWrapper.hpp"
 using namespace std;
 

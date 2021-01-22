@@ -1,4 +1,4 @@
- #include "Graph.hpp"
+#include "graph/Graph.hpp"
 
 #include <cassert>
 #include <cmath>
@@ -8,6 +8,7 @@
 #include <queue>
 #include <regex>
 #include <set>
+#include <string>
 #include <sstream>
 #include <sys/file.h>
 #include <sys/stat.h>
@@ -27,7 +28,7 @@ Graph::Graph(const string& graphName, const string& optionalFilePath,
              const vector<string>& optionalNodeNames,
              const vector<EDGE_T>& optionalEdgeWeights,
              const vector<array<string, 2>>& partialNodeColorPairs):
-        name(graphName), filePath(optionalFilePath),
+        name(graphName),
         edgeList(edgeList), nodeNames(optionalNodeNames) {
 
     uint numNodes;
@@ -445,7 +446,6 @@ vector<array<string, 2>> Graph::colorsAsNodeColorNamePairs() const {
 void Graph::debugPrint() const {
     size_t MAX_LEN = 10;        
     cerr<<"DEBUG PRINT "<<name<<endl;
-    cerr<<"filePath: "<<filePath<<endl;
     cerr<<"adjLists size: "<<adjLists.size()<<endl;
     cerr<<"neighbor lists sizes: ";
     for(uint i = 0; i < min(adjLists.size(), MAX_LEN); i++) cerr<<adjLists[i].size()<<' ';
@@ -669,4 +669,13 @@ unordered_map<uint, string> Graph::getIndexToNodeNameMap() const {
         res[nameIndexPair.second] = nameIndexPair.first;
     }
     return res;
+}
+
+sana::Edge::Edge(sana::Source s, sana::Destination d): source(s), destination(d) {}
+
+sana::Edge::Edge(const sana::Edge& other): source(other.source), destination(other.destination) {
+}
+
+bool sana::Edge::compare(const sana::Edge& a, const Edge& b) {
+    return a.source < b.source or (a.source == b.source && a.destination < b.destination);
 }

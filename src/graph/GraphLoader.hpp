@@ -4,9 +4,10 @@
 #include <utility>
 #include <vector>
 #include <array>
+#include <memory>
 #include <string>
 #include "arguments/ArgumentParser.hpp"
-#include "Graph.hpp"
+#include "graph/Graph.hpp"
 
 #ifndef MULTI_PAIRWISE
 #ifndef FLOAT_WEIGHTS
@@ -31,7 +32,18 @@ public:
     Furthermore, it creates new network folders and files (networks/g1name/g1name.gw
     and networks/g2name/g2name.gw) so in subsequent executions, one can use the "by name" option. */
     static pair<Graph,Graph> initGraphs(ArgumentParser& args);
-
+    /**
+     * Load graph from file path
+     * @param localFilePath Absolute pathname
+     * @return
+     */
+    std::shared_ptr<sana::GraphData> loadGraph(const std::string& localFilePath);
+    /**
+     * Load graph from file path
+     * @param localFilePath Absolute pathname
+     * @return
+     */
+    std::shared_ptr<sana::GraphData> loadGraph(std::istream& in);
     //output functions (Do not output functions directly to the Graph class)
     static void saveInGWFormat(const Graph& G, const string& outFile, bool saveWeights = false);
 
@@ -39,7 +51,7 @@ public:
     //namedEdges: use node names instead of indices. indices are 0-based
     //headerLine: add a line at the top. leave empty to skip
     //sep: string between columns (usually just a space)
-    static void saveInEdgeListFormat(const Graph& G, const string& outFile, bool weightColumn, bool namedEdges, 
+    static void saveInEdgeListFormat(const Graph& G, const string& outFile, bool weightColumn, bool namedEdges,
                               const string& headerLine, const string& sep);
 
     //loads graph from filePath according to the file extension

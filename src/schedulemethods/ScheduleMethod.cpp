@@ -2,6 +2,7 @@
 
 #include <cassert>
 #include <iostream>
+#include "spdlog/spdlog.h"
 
 #include "utils/Timer.hpp"
 #include "utils/LinearRegression.hpp"
@@ -24,15 +25,15 @@ ScheduleMethod::ScheduleMethod():
     errorTol(DEFAULT_ERROR_TOL_DIGITS), sampleTime(DEFAULT_SAMPLE_TIME),
     tempToPBad(),
     TIniRes(0, 0.0), TFinRes(0, 0.0) {
-
-    if (sana == nullptr) {
-        throw runtime_error("call ScheduleMethod::setSana() before initializing any schedule methods");
-    }
+    // Commenting this out. If we need it, it should be passed at function time or construction time.
+//    if (sana == nullptr) {
+//        throw runtime_error("call ScheduleMethod::setSana() before initializing any schedule methods");
+//    }
 
 }
 
 double ScheduleMethod::computeTInitial(ScheduleMethod::Resources maxRes) {
-    cout << endl << "Computing TInitial via method " << getName() << endl;
+    spdlog::info("Computing TInitial via method '{}'", getName());
     int currSamples = tempToPBad.size();
     Timer T;
     T.start();
@@ -42,7 +43,8 @@ double ScheduleMethod::computeTInitial(ScheduleMethod::Resources maxRes) {
     TIniRes.runtime = T.elapsed();
     TIniRes.numSamples = tempToPBad.size() - currSamples;
 
-    cout << "Computed TInitial " << TInitial << " in " << TIniRes.runtime << "s" << endl;
+    // TODO: Refactor out of state. Why??
+    spdlog::debug("Computed TInitial: {} in {}s ", TInitial, TIniRes.runtime);
     return TInitial;
 }
 
@@ -227,10 +229,10 @@ double ScheduleMethod::pBadBinarySearch(double targetPBad, ScheduleMethod::Resou
     if (isWithinTargetRange(lowPBad, targetPBad, errorTol)) return lowTemp;
     if (isWithinTargetRange(midPBad, targetPBad, errorTol)) return midTemp;
 
-    cerr<<"Target range: ("<<targetRangeMin(targetPBad, errorTol)<<", ";
-    cerr<<targetRangeMax(targetPBad, errorTol)<<")"<<endl;
-    cerr<<"Start search bounds: temps: ("<<lowTemp<<", "<<midTemp<<", "<<highTemp<<") ";
-    cerr<<"pbads: ("<<lowPBad<<", "<<midPBad<<", "<<highPBad<<")"<<endl;
+    spdlog::debug("Target range: ({:.5f}, {:.5f})", targetRangeMin(targetPBad, errorTol),
+            targetRangeMax(targetPBad, errorTol));
+    spdlog::debug("Start search bounds - temps: ({:.5f}, {:.5f}, {:.5f})", lowTemp, midTemp, highTemp);
+    spdlog::debug("pbads: ({:.5f}, {:.5f}, {:.5f})", lowPBad, midPBad, highPBad);
 
     //in the search, the following invariants hold:
     //(1) lowTemp < midTemp < highTemp ; (2) lowPBad < targetRange < highPBad ;
@@ -249,8 +251,8 @@ double ScheduleMethod::pBadBinarySearch(double targetPBad, ScheduleMethod::Resou
     while (not invariants) {
         failCount++;
         if (failCount == 3) {
-            cerr << "Binary search for pBad could not establish a reasonable starting range --" << endl;
-            cerr << "Output temperature is likely not good" << endl;
+            spdlog::warn("Binary search for pBad could not establish a reasonable starting range. "
+                         "Output temperature is likely not good");
             double dlow = abs(lowPBad - targetPBad);
             double dmid = abs(midPBad - targetPBad);
             double dhigh = abs(highPBad - targetPBad);
@@ -288,8 +290,9 @@ double ScheduleMethod::pBadBinarySearch(double targetPBad, ScheduleMethod::Resou
         invariants = lowPBad <= midPBad and midPBad <= highPBad;
         failCount = 0;
         while (not invariants) {
-            cerr<<"Invalid search range: temps: ("<<lowTemp<<", "<<midTemp<<", "<<highTemp;
-            cerr<<") pbads: ("<<lowPBad<<", "<<midPBad<<", "<<highPBad<<")"<<endl;
+            // TODO: One line or two lines? Earlier on, it was two lines??
+            spdlog::debug("Invalid search range. Temps: ({:.5f}, {:.5f}, {:.5f}). pbads: ({:.5f}, {:.5f}, {:.5f})",
+                    lowTemp, midTemp, highTemp, lowPBad, midPBad, highPBad);
             failCount++;
             if (failCount == 3) {
                 double dlow = abs(lowPBad - targetPBad);
@@ -313,7 +316,7 @@ double ScheduleMethod::pBadBinarySearch(double targetPBad, ScheduleMethod::Resou
                          isBelowTargetRange(lowPBad, targetPBad, errorTol) and
                          isAboveTargetRange(highPBad, targetPBad, errorTol);
             if (invariants) {
-                cerr<<"Corrected pbads: ("<<lowPBad<<", "<<midPBad<<", "<<highPBad<<")"<<endl;
+                spdlog::debug("Corrected pbads: ({:.5f}, {:.5f}, {:.5f})", lowPBad, midPBad, highPBad);
             }
         }
     }

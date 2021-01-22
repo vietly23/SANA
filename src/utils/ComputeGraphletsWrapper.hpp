@@ -3,7 +3,7 @@
 #include <vector>
 #include <string>
 
-#include "Graph.hpp"
+#include "graph/Graph.hpp"
 #include "utils/utils.hpp"
 
 using namespace std;

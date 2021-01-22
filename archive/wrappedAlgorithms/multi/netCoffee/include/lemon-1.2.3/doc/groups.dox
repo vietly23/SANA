@@ -679,7 +679,7 @@ This group contains the skeletons and concept checking classes of maps.
 */
 
 /**
-@defgroup tools Standalone Utility Applications
+@defgroup tools Standalone RandomUtility Applications
 
 Some utility applications are listed here.
 

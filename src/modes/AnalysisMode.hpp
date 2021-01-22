@@ -1,7 +1,7 @@
 #ifndef ANALYSISMODE_HPP_
 #define ANALYSISMODE_HPP_
 
-#include "Graph.hpp"
+#include "graph/Graph.hpp"
 #include "arguments/ArgumentParser.hpp"
 #include "modes/Mode.hpp"
 

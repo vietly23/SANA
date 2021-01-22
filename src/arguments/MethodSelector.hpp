@@ -3,7 +3,7 @@
 
 #include "ArgumentParser.hpp"
 #include "methods/Method.hpp"
-#include "Graph.hpp"
+#include "graph/Graph.hpp"
 #include "measures/MeasureCombination.hpp"
 #include "methods/wrappers/LGraalWrapper.hpp"
 #include "methods/wrappers/HubAlignWrapper.hpp"
